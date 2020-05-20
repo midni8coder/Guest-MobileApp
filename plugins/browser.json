@@ -1,0 +1,43 @@
+{
+  "prepare_queue": {
+    "installed": [],
+    "uninstalled": []
+  },
+  "config_munge": {
+    "files": {}
+  },
+  "installed_plugins": {
+    "cordova-plugin-battery-status": {
+      "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-media-capture": {
+      "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-dialogs": {
+      "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-geolocation": {
+      "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-globalization": {
+      "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-inappbrowser": {
+      "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-network-information": {
+      "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-vibration": {
+      "PACKAGE_NAME": "org.guest.management"
+    }
+  },
+  "dependent_plugins": {
+    "cordova-plugin-compat": {
+      "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-file": {
+      "PACKAGE_NAME": "org.guest.management"
+    }
+  }
+}

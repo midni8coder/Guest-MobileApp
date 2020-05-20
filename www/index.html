@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta name="description" content="This is a Hostel Management Application which can automate manual tasks." />
+    <meta name="keywords"
+        content="hostel management application,local hostels,paying guest application,rent management,goods management " />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="./js/jquery.mobile-1.4.5/GuestTheme.min.css">
+    <link rel="stylesheet" href="./js/jquery.mobile-1.4.5/jquery.mobile.icons-1.4.5.css">
+    <link rel="stylesheet" href="./js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="./js/jquery.mobile-1.4.5/jquery.mobile.icons-1.4.5.css">
+    <link rel="stylesheet" href="./css/icons/icofont/icofont.min.css">
+    <script src="./js/jquery-1.11.1.min.js"></script>
+    <script src="./js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" /> -->
+    <!-- <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script> -->
+    <!-- <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script> -->
+    <title>Guest</title>
+</head>
+
+<body>
+    <!-- home page start -->
+    <div data-role="page" id="homePage">
+        <!-- Panels  in homePage start -->
+        <div data-role="panel" id="menuHome" data-position="left" data-display="overlay">
+            <div style="background-color: darkseagreen;" class="ui-panel-inner">
+                <div>
+                    <h2>Hello, Devid</h1>
+                    <a style="font-size: 15px;background-color: goldenrod; margin-bottom: 20px; margin-right: 20px;" class="ui-btn ui-mini ui-icon-star ui-btn-icon-left ui-shadow " data-transition="slide"  href="#accountPage">Become Gold Member </a>
+                </div>
+                <ul data-role="listview">
+                    <li><a class="ui-btn ui-icon-user ui-btn-icon-left ui-shadow ui-corner-all" data-transition="slide"  href="#accountPage" rel="external">Account</a> </li>
+                    <li><a class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow " href="#">Revenue</a> </li>
+                    <li><a class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow "  href="#">Rooms</a> </li>
+                    <li><a class="ui-btn ui-icon-heart ui-btn-icon-left ui-shadow " href="#">Guests</a> </li>
+                    <li><a class="ui-btn ui-icon-calendar ui-btn-icon-left ui-shadow "  href="#">Today's Meals</a> </li>
+                </ul>
+                <h2>Orders</h2>
+                <ul data-role="listview">
+                    <li><a class="ui-btn ui-icon-shop ui-btn-icon-left ui-shadow " href="#">Orders</a> </li>
+                    <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Panels in homePage End -->
+        <div style="background-color: darkseagreen;"  data-role="header" data-position="fixed">
+            <a href="#menuHome" data-transition="slide" class="ui-btn ui-icon-bars ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext">Home</a>
+            <h1>Header</h1>
+            <!-- <div data-role="controlgroup" data-type="horizntal"> -->
+                <!-- <a href="#" data-inline="true" class="ui-btn ui-icon-mail ui-btn-icon-right ui-shadow ui-corner-all ui-btn-icon-notext">Message</a> -->
+                <a href="#aboutPage" data-inline="true" class="ui-btn ui-icon-info ui-btn-icon-right ui-shadow ui-corner-all ui-btn-icon-notext">Notification</a>
+            <!-- </div> -->
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>Home page content</p>
+            <a href="#aboutPage">About</a>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <!-- <h1>&copy; Guest App 2020</h1> -->
+        </div>
+    </div>
+    <!-- home page end -->
+    <!-- account page start -->
+    <div data-role="page" id="accountPage">
+        <div data-role="header" style="background-color: darkseagreen;"  data-position="fixed">
+                <a href="" data-rel="back" 
+                        class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext">Home</a>
+                <h1>Account</h1>
+                <a href="#" id="linkAccountEdit" onclick="app.onEditClick(this,'formAccount','account');"  class="ui-btn ui-icon-edit ui-btn-icon-left ui-shadow ui-corner-all">Edit</a>
+        </div>
+        <div data-role="main" class="ui-content">
+                <p>Account Settings</p>
+                
+               <form action="" id="formAccount">
+                    <div class="ui-field-contain">
+                        <label for="">Name: </label>
+                        <input disabled="disabled" type="text" name="name" value="Devid Lingampally" placeholder="Enter your name here">
+                    </div>
+                </form>
+                <!-- <a href="contact.html">Contact</a> -->
+        </div>
+        <div data-role="footer" data-position="fixed">
+                <!-- <h1>&copy; Guest App 2020</h1> -->
+        </div>
+    </div>
+    <!-- account page end -->
+    <!-- about page start -->
+    <div data-role="page" id="aboutPage"  data-dialog="true" data-close-btn="none"  data-transition="slidedown">
+        <div style="background-color: darkseagreen;"  data-role="header" data-position="fixed">
+            <h1>About Page</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <p>About page content</p>
+            <p>About page content</p>
+            <p>About page content</p>
+            <p>About page content</p>
+            <p>About page content</p>
+            <a href="#" style="background-color: darkseagreen;" data-rel="back" data-theme="b" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all">OK</a>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <!-- <h1>&copy; Guest App 2020</h1> -->
+        </div>
+    </div>
+    <!-- about page end-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript">
+        app.initialize();
+    </script>
+</body>
+
+</html>
