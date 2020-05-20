@@ -4,6 +4,12 @@ var app = {
     initialize: function() {
         this.bindEvents();
     },
+    data:[
+        {'name':'Devid L', 'id':1,'room':'B1 106 4'},
+        {'name':'Ramesh Naik', 'id':2,'room':'B1 102 4'},
+        {'name':'Devraj', 'id':3,'room':'B1 302 1'},
+        {'name':'Samantha Reddy', 'id':3,'room':'B1 103 4'},
+    ],
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
@@ -43,5 +49,29 @@ var app = {
             $('[name="name"]','#'+formID).parent().addClass("ui-state-disabled");
         }
         
+    },
+    showGuestList:function(){
+        //alert('called'+this.data.length);
+        $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
+        $.each(this.data, function(id, value){
+            $('<li>'+value.name+'</li>').appendTo('#guestList');
+        });
+    },
+    addNewGuest:function(control){
+        var newGuest = {};
+        if(control)
+        {
+        //    var name =  $(control).closest('#guestName').val();
+        newGuest.name = $('#guestName').val();
+        }
+        else
+        {
+            newGuest.name = "New Guest "+(this.data.length+1);
+            newGuest.id = this.data.length+1;
+            newGuest.room = "Room "+(this.data.length+1);
+        }
+        this.data.push(newGuest);
+        $('<li>'+newGuest.name+'</li>').appendTo('#guestList');
+        $("#guestList").listview().listview('refresh'); //.append(output)
     }
 };
