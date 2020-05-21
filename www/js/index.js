@@ -34,6 +34,17 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
+        alert(StatusBar);
+    },
+    GetSortOrder: function(prop) {    
+        return function(a, b) {    
+            if (a[prop].toLowerCase() > b[prop].toLowerCase()) {    
+                return 1;    
+            } else if (a[prop].toLowerCase() < b[prop].toLowerCase()) {    
+                return -1;    
+            }    
+            return 0;    
+        }    
     },
     onEditClick:function(control,formID, type){
         
@@ -53,7 +64,7 @@ var app = {
     showGuestList:function(){
         //alert('called'+this.data.length);
         $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
-        $.each(this.data, function(id, value){
+        $.each(this.data.sort(this.GetSortOrder("name")), function(id, value){
             $('<li>'+value.name+'</li>').appendTo('#guestList');
         });
     },
@@ -63,6 +74,7 @@ var app = {
         {
         //    var name =  $(control).closest('#guestName').val();
         newGuest.name = $('#guestName').val();
+        $('#guestName').val('');
         }
         else
         {
@@ -71,7 +83,15 @@ var app = {
             newGuest.room = "Room "+(this.data.length+1);
         }
         this.data.push(newGuest);
-        $('<li>'+newGuest.name+'</li>').appendTo('#guestList');
+        $('#linkAddGuestClose').click();
+        $('#guestList').empty();
+        $.each(this.data.sort(this.GetSortOrder("name")), function(id, value){
+            $('<li>'+value.name+'</li>').appendTo('#guestList');
+        });
+        //$('<li>'+newGuest.name+'</li>').appendTo('#guestList');
         $("#guestList").listview().listview('refresh'); //.append(output)
+    },
+    AddNewGuestSubmit:function(){
+        alert('submitting')
     }
 };

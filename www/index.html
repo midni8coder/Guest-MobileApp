@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./css/icons/icofont/icofont.min.css">
     <script src="./js/jquery-1.11.1.min.js"></script>
     <script src="./js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script src="./js/jquery.validate.min.js"></script>
     <title>Guest</title>
 </head>
 
@@ -111,13 +112,22 @@
 
     <!-- Guests page start -->
     <div data-role="page" id="guestsPage" >
-        <div data-role="popup" id="popupAddGuest" class="ui-corner-all">
+        <div data-role="popup"  id="popupAddGuest" class="ui-corner-all" data-dismissible="false">
             <!-- <div style="background-color: darkseagreen;"  data-role="header" data-position="fixed"> -->
-                <h3>Add Guest</h3>
+            <a href="" id="linkAddGuestClose" data-rel="back" class="ui-btn ui-btn-a ui-icon-delete ui-btn-right ui-shadow ui-corner-all ui-btn-icon-notext">Home</a>
+            <form action="#guestsPage" method="POST" id="formAddNewGuest">
+                <div style="padding:10px">
+                    <h3>Add Guest</h3>
+                    <label for="guestName" class="ui-hidden-accessible">Guest Name:</label>
+                    <input type="text"  name="guestName" id="guestName" placeholder="Enter new Guest Name"/>
+                    <label for="guestAge" class="ui-hidden-accessible">Guest Age:</label>
+                    <input type="number" data-clear-btn="true" pattern="/^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[eE][+-][0-9]+)?$/" name="guestAge" id="guestAge" placeholder="Guest Age"/>
+                    <button type="submit" data-rel="back" onclick="app.addNewGuest(this)"  style="background-color: darkseagreen;" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all">Save</button>
+                </div>
+            </form>    
             
-            
-                <input type="text" name="name" id="guestName" placeholder="Enter new Guest Name"/>
-                <button data-rel="back" onclick="app.addNewGuest(this)"  style="background-color: darkseagreen;" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all">Save</button>
+                
+                
             
         </div>
         <div style="background-color: darkseagreen;"  data-role="header" data-position="fixed">
@@ -144,6 +154,38 @@
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
         app.initialize();
+    </script>
+    <script>
+        $(document).ready(function(){
+           // $('#formAddNewGuest').on("submit",app.AddNewGuestSubmit());
+           $('#formAddNewGuest').validate({
+    rules: {
+        guestName: {
+            required: true
+        },
+        guestAge: {
+            required: true
+        }
+    },
+    messages: {
+        guestName: {
+            required: "Please enter  name."
+        },
+        guestAge: {
+            required: "Please enter age."
+        }
+    },
+    errorPlacement: function (error, element) {
+        error.appendTo(element.parent().prev());
+    },
+    submitHandler: function (form) {
+        $(':mobile-pagecontainer').pagecontainer('change', '#success', {
+            reload: false
+        });
+        return false;
+    }
+});
+        });
     </script>
 </body>
 
