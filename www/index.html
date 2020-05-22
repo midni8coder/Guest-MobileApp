@@ -37,30 +37,31 @@
                     <h2>Hello, Devid</h1>
                     <a style="font-size: 15px;background-color: goldenrod; margin-bottom: 20px; margin-right: 20px;" class="ui-btn ui-mini ui-icon-star ui-btn-icon-left ui-shadow " data-transition="slide"  href="#accountPage">Become Gold Member </a>
                 </div>
-                <ul data-role="listview">
-                    <li><a class="ui-btn ui-icon-user ui-btn-icon-left ui-shadow" data-transition="slide"  href="#accountPage">Account</a> </li>
-                    <li><a class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow " data-transition="slide"  href="#">Revenue</a> </li>
-                    <li><a class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow " data-transition="slide"   href="#roomsPage">Rooms</a> </li>
-                    <li><a class="ui-btn ui-icon-heart ui-btn-icon-left ui-shadow " data-transition="slide"  href="#guestsPage">Guests</a> </li>
-                    <li><a class="ui-btn ui-icon-calendar ui-btn-icon-left ui-shadow " data-transition="slide"   href="#">Today's Meals</a> </li>
-                </ul>
-                <h3>Orders</h3>
-                <ul data-role="listview">
-                    <li><a class="ui-btn ui-icon-shop ui-btn-icon-left ui-shadow " href="#">Orders</a> </li>
-                    <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li>
-                </ul>
-                <h3>Invitation</h3>
-                <ul data-role="listview">
-                    <li><a class="ui-btn ui-icon-action ui-btn-icon-left ui-shadow " href="#">Invite a member</a> </li>
-                    <!-- <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li> -->
-                </ul>
-                <h3>Help</h3>
-                <ul data-role="listview">
-                    <li><a class="ui-btn ui-icon-shop ui-btn-icon-left ui-shadow " href="#">Terms & Conditions</a> </li>
-                    <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">Policies</a> </li>
-                </ul>
-                <div data-role="footer" data-position="fixed">
-                    <h1>&copy; Guest App 2020</h1>
+                
+                    <ul data-role="listview">
+                        <li><a class="ui-btn ui-icon-user ui-btn-icon-left ui-shadow" data-transition="slide"  href="#accountPage">Account</a> </li>
+                        <li><a class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow " data-transition="slide"  href="#">Revenue</a> </li>
+                        <li><a class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow " data-transition="slide"   href="#roomsPage">Rooms</a> </li>
+                        <li><a class="ui-btn ui-icon-heart ui-btn-icon-left ui-shadow " data-transition="slide"  href="#guestsPage">Guests</a> </li>
+                        <li><a class="ui-btn ui-icon-calendar ui-btn-icon-left ui-shadow " data-transition="slide"   href="#">Today's Meals</a> </li>
+                    </ul>
+                    <h3>Orders</h3>
+                    <ul data-role="listview">
+                        <li><a class="ui-btn ui-icon-shop ui-btn-icon-left ui-shadow " href="#">Orders</a> </li>
+                        <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li>
+                    </ul>
+                    <h3>Invitation</h3>
+                    <ul data-role="listview">
+                        <li><a class="ui-btn ui-icon-action ui-btn-icon-left ui-shadow " href="#">Invite a member</a> </li>
+                        <!-- <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li> -->
+                    </ul>
+                    <h3>Help</h3>
+                    <ul data-role="listview">
+                        <li><a class="ui-btn ui-icon-shop ui-btn-icon-left ui-shadow " href="#">Terms & Conditions</a> </li>
+                        <!-- <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">Policies</a> </li> -->
+                    </ul>
+                <div class="g-page-header" style="padding: 20px 20px;">
+                    <h3>&copy; Guest App 2020</h3>
                 </div>
             </div>
         </div>
@@ -74,6 +75,7 @@
             <!-- </div> -->
         </div>
         <div data-role="main" class="ui-content">
+            <div class="g-notes"></div>
             <div id="expenditureContainer" style="height: 300px; width: 320px;"></div>
             <br>
             <br>
@@ -212,7 +214,7 @@
         </div>
         <div data-role="main" class="ui-content">
             <div class="g-div-overflow">
-                <p><span>** All amounts are in Rupees</span></p>
+                <div class="g-notes"></div>
                 <table border="1" data-role="table" data-mode="columntoggle" class="ui-responsive table-stripe ui-shadow" >
                     <thead style="background-color: darkseagreen;">
                         <tr>

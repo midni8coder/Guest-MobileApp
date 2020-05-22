@@ -1,3 +1,15 @@
+/* *{
+    font-family: monospace !important;
+} */
+@font-face {
+    font-family: newFont;
+    src: url(fonts/Montserrat-Regular.ttf);
+  }
+  
+ * {
+    font-family: newFont;
+  }
+
 .g-div-overflow{
     overflow: scroll;
     /* max-height: 100%; */
@@ -14,4 +26,11 @@
 }
 .g-tooltip{
     max-width: 200px;
+}
+.g-notes{
+    background-color:beige;
+    border-radius: 10px 10px;
+}
+.g-notes::after{
+    content: "** All amounts are in Rupees";
 }
