@@ -1,0 +1,17 @@
+.g-div-overflow{
+    overflow: scroll;
+    /* max-height: 100%; */
+}
+.g-page-header{
+    background-color: darkseagreen !important;
+}
+.g-account-profileBG{
+    background: url('../img/owner/background.jpg')  ;
+    border-radius: 10px 10px;
+    max-width: 100%;
+    /* max-height: 200px; */
+    height: 200px;   
+}
+.g-tooltip{
+    max-width: 200px;
+}

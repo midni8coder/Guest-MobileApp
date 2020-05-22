@@ -22,6 +22,8 @@
     <script src="./js/jquery-1.11.1.min.js"></script>
     <script src="./js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.min.js"></script>
     <script src="./js/jquery.validate.min.js"></script>
+    <script src="./js/canvasjs.min.js"></script>
+    <script src="./js/g-charts.js"></script>
     <title>Guest</title>
 </head>
 
@@ -29,28 +31,41 @@
     <!-- home page start -->
     <div data-role="page" id="homePage">
         <!-- Panels  in homePage start -->
-        <div data-role="panel" id="menuHome" data-position="left" data-display="overlay">
-            <div style="background-color: darkseagreen;" class="ui-panel-inner">
+        <div class="g-page-header" data-role="panel" id="menuHome" data-position="left" data-display="overlay">
+            <div  class="ui-panel-inner ">
                 <div>
                     <h2>Hello, Devid</h1>
                     <a style="font-size: 15px;background-color: goldenrod; margin-bottom: 20px; margin-right: 20px;" class="ui-btn ui-mini ui-icon-star ui-btn-icon-left ui-shadow " data-transition="slide"  href="#accountPage">Become Gold Member </a>
                 </div>
                 <ul data-role="listview">
                     <li><a class="ui-btn ui-icon-user ui-btn-icon-left ui-shadow" data-transition="slide"  href="#accountPage">Account</a> </li>
-                    <li><a class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow " href="#">Revenue</a> </li>
-                    <li><a class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow "  href="#">Rooms</a> </li>
+                    <li><a class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow " data-transition="slide"  href="#">Revenue</a> </li>
+                    <li><a class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow " data-transition="slide"   href="#roomsPage">Rooms</a> </li>
                     <li><a class="ui-btn ui-icon-heart ui-btn-icon-left ui-shadow " data-transition="slide"  href="#guestsPage">Guests</a> </li>
-                    <li><a class="ui-btn ui-icon-calendar ui-btn-icon-left ui-shadow "  href="#">Today's Meals</a> </li>
+                    <li><a class="ui-btn ui-icon-calendar ui-btn-icon-left ui-shadow " data-transition="slide"   href="#">Today's Meals</a> </li>
                 </ul>
-                <h2>Orders</h2>
+                <h3>Orders</h3>
                 <ul data-role="listview">
                     <li><a class="ui-btn ui-icon-shop ui-btn-icon-left ui-shadow " href="#">Orders</a> </li>
                     <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li>
                 </ul>
+                <h3>Invitation</h3>
+                <ul data-role="listview">
+                    <li><a class="ui-btn ui-icon-action ui-btn-icon-left ui-shadow " href="#">Invite a member</a> </li>
+                    <!-- <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li> -->
+                </ul>
+                <h3>Help</h3>
+                <ul data-role="listview">
+                    <li><a class="ui-btn ui-icon-shop ui-btn-icon-left ui-shadow " href="#">Terms & Conditions</a> </li>
+                    <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">Policies</a> </li>
+                </ul>
+                <div data-role="footer" data-position="fixed">
+                    <h1>&copy; Guest App 2020</h1>
+                </div>
             </div>
         </div>
         <!-- Panels in homePage End -->
-        <div style="background-color: darkseagreen;"  data-role="header" data-position="fixed">
+        <div class="g-page-header" data-role="header" data-position="fixed">
             <a href="#menuHome" data-transition="slide" class="ui-btn ui-icon-bars ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext">Home</a>
             <h1>Guest App</h1>
             <!-- <div data-role="controlgroup" data-type="horizntal"> -->
@@ -59,8 +74,16 @@
             <!-- </div> -->
         </div>
         <div data-role="main" class="ui-content">
-            <p>Home page content</p>
-            <a href="#aboutPage">About</a>
+            <div id="expenditureContainer" style="height: 300px; width: 320px;"></div>
+            <br>
+            <br>
+            <div id="membersContainer" style="height: 300px; width: 320px;"></div>
+            <script>
+                $(document).ready(function(){
+                showChart("pie", "expenditureContainer", "Total expenditure in May - 2020","getExpenditureData");
+                showChart("bar", "membersContainer", "Rooms occupency for 2020","getGuestOccupencyData");
+                });
+            </script>
         </div>
         <div data-role="footer" data-position="fixed">
             <!-- <h1>&copy; Guest App 2020</h1> -->
@@ -69,19 +92,46 @@
     <!-- home page end -->
     <!-- account page start -->
     <div data-role="page" id="accountPage">
-        <div data-role="header" style="background-color: darkseagreen;"  data-position="fixed">
+        <!-- popups of account page - start -->
+        <div data-role="popup"  id="popupAccPGName" class="ui-content ui-corner-all g-tooltip" > 
+            <p>Enter complete name of the PG. So that Guests can differentiate from similar PGs</p> 
+        </div>
+        <div data-role="popup"  id="popupAccPGLocation" class="ui-content ui-corner-all g-tooltip" > 
+            <p>Enter complete location of the PG. So that Guests can reach you easily</p> 
+        </div>
+        <!-- popups of account page - end -->
+        <div data-role="header" class="g-page-header"  data-position="fixed">
                 <a href="" data-rel="back" 
                         class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext">Home</a>
                 <h1>Account</h1>
                 <a href="#" id="linkAccountEdit" onclick="app.onEditClick(this,'formAccount','account');"  class="ui-btn ui-icon-edit ui-btn-icon-left ui-shadow ui-corner-all">Edit</a>
         </div>
         <div data-role="main" class="ui-content">
-                <p>Account Settings</p>
-                
+                <!-- <p>Account Settings</p> -->
+                <div class="g-account-profileBG">
+                </div>
                <form action="" id="formAccount">
                     <div class="ui-field-contain">
-                        <label for="">Name: </label>
-                        <input disabled="disabled" type="text" name="name" value="Devid Lingampally" placeholder="Enter your name here">
+                        <label for="">PG Name<a href="#popupAccPGName" data-rel="popup" data-transition="pop" 
+                            class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
+                            title="What is this?">
+                            Info</a></label>
+                        <input disabled="disabled" type="text" name="pgname" value="Second Home PG" placeholder="Enter PG name">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="">PG Location<a href="#popupAccPGLocation" data-rel="popup" data-transition="pop" 
+                            class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
+                            title="What is this?">
+                            Info</a></label>
+                        <input disabled="disabled" type="text" name="pglocation" value="H.No:2-122, Madhapur, Hyderabad" placeholder="Enter PG name">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="">Owner Name </label>
+                        <input disabled="disabled" type="text" name="ownername" value="Devid Lingampally" placeholder="Enter owner name">
+                    </div>
+                    <div class="ui-field-contain">
+                        <label for="">Business EmailID </label>
+                        <input disabled="disabled" type="text" name="businessEmail" value="secondhomes@gmail.com" placeholder="Enter Email ID">
                     </div>
                 </form>
                 <!-- <a href="contact.html">Contact</a> -->
@@ -93,7 +143,7 @@
     <!-- account page end -->
     <!-- about page start -->
     <div data-role="page" id="aboutPage"  data-dialog="true" data-close-btn="none"  data-transition="slidedown">
-        <div style="background-color: darkseagreen;"  data-role="header" data-position="fixed">
+        <div class="g-page-header"  data-role="header" data-position="fixed">
             <h1>About Page</h1>
         </div>
         <div data-role="main" class="ui-content">
@@ -130,7 +180,7 @@
                 
             
         </div>
-        <div style="background-color: darkseagreen;"  data-role="header" data-position="fixed">
+        <div class="g-page-header"  data-role="header" data-position="fixed">
             <h1>Guests</h1>
             <a href="" data-rel="back" class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext">Home</a>
             <!-- <a href="#" id="linkAddGuest" onclick="app.addNewGuest()"  class="ui-btn ui-icon-plus ui-mini ui-btn-icon-left ui-shadow ui-corner-all">Add Guest</a> -->
@@ -150,6 +200,68 @@
         </div>
     </div>
     <!-- Guests page end-->
+
+    <!-- Rooms page start -->
+    <div data-role="page" id="roomsPage" >
+
+        <div  class="g-page-header"  data-role="header" data-position="fixed">
+            <h1>Rooms</h1>
+            <a href="" data-rel="back" class="ui-btn ui-icon-carat-l ui-btn-icon-left ui-shadow ui-corner-all ui-btn-icon-notext">Home</a>
+            <!-- <a href="#" id="linkAddGuest" onclick="app.addNewGuest()"  class="ui-btn ui-icon-plus ui-mini ui-btn-icon-left ui-shadow ui-corner-all">Add Guest</a> -->
+            <a href="#popupAddRoom" data-rel="popup" data-position-to="window" data-transition="popup" id="linkAddRoom"  class="ui-btn ui-icon-plus ui-mini ui-btn-icon-left ui-shadow ui-corner-all">Add Room</a>
+        </div>
+        <div data-role="main" class="ui-content">
+            <div class="g-div-overflow">
+                <p><span>** All amounts are in Rupees</span></p>
+                <table border="1" data-role="table" data-mode="columntoggle" class="ui-responsive table-stripe ui-shadow" >
+                    <thead style="background-color: darkseagreen;">
+                        <tr>
+                            <!-- <th>Name</th> -->
+                            <th>Room</th>
+                            <th>Total Rent</th>
+                            <th>Last Month Rent</th>
+                            <th data-priority="2">Capacity</th>
+                            <th data-priority="3">Members</th>
+                            <th data-priority="2">Amenities</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <!-- <td>Ramesh</td> -->
+                            <td>106-1</td>
+                            <td>53,000</td>
+                            <td>7,000</td>
+                            <td>1</td>
+                            <td>Devid</td>
+                            <td>Cupboard, Bed, Heater, Hangers</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>Ramesh</td> -->
+                            <td>106-2</td>
+                            <td>83,000</td>
+                            <td>18,000</td>
+                            <td>3</td>
+                            <td>Ramesh, Rahul, Devraj</td>
+                            <td>TV, Cupboard, Bed, Heater, Hangers</td>
+                        </tr>
+                        <tr>
+                            <!-- <td>Ramesh</td> -->
+                            <td>203-1</td>
+                            <td>1,77,000</td>
+                            <td>24,000</td>
+                            <td>4</td>
+                            <td>Naveen, Rajesh, Sagar, Venky</td>
+                            <td>AC, TV, Cupboard, Bed, Heater, Hangers</td>
+                        </tr>
+                    </tbody>
+                </table>
+        </div>
+        </div>
+        <div data-role="footer" data-position="fixed">
+            <!-- <h1>&copy; Guest App 2020</h1> -->
+        </div>
+    </div>
+    <!-- Rooms page end-->
     <script type="text/javascript" src="cordova.js"></script>
     <script type="text/javascript" src="js/index.js"></script>
     <script type="text/javascript">
