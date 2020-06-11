@@ -79,6 +79,12 @@ var app = {
             $('<li>'+value.name+'</li>').appendTo('#guestList');
         });
     },
+    adjustModalFields:function (){
+        $.each($('.modal:visible input'),function(i,element){
+            $(element).parent().remove();
+            $(element).insertAfter($(element).parent().prev());
+        });
+    },
     addNewGuest:function(control){
         var newGuest = {};
         if(control)
