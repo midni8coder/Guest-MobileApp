@@ -33,15 +33,48 @@
 
 <body>
     <script src="Framework/Material/materialize/js/materialize.min.js"></script>
+    <!-- Models -->
+    <div id="modalAddGuest" class="modal modal-fixed-footer">
+        <div class="modal-content">
+          <h4>Modal Header</h4>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix white-text">account_circle</i>
+                  <input id="icon_prefix" type="text" class="validate">
+                  <label for="icon_prefix">First Name</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix teal-text">phone</i>
+                  <input id="icon_telephone" type="tel" class="validate">
+                  <label for="icon_telephone">Telephone</label>
+                </div>
+            </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <a href="#!" class="modal-close waves-effect waves-green btn-flat">Save</a>
+          <a href="#!" data-rel="back" class="modal-close waves-effect waves-red btn-flat">Close</a>
+        </div>
+      </div>
+
     <!-- home page start -->
     <div data-role="page" id="homePage" class="g-homePage">
         <!-- Panels  in homePage start -->
-        <div class="g-page-header" data-position="left" data-position-fixed="true" data-role="panel" id="menuHome"  data-display="overlay">
+        <div class="g-page-header " data-position="left" data-position-fixed="true" data-role="panel" id="menuHome"  data-display="overlay">
             <div class="ui-panel-inner">
                 <div>
+                    <img src="content/user/profile-img.JPG" alt="" class="g-profile-img">
                     <a class="" data-transition="slide"  href="#accountPage"><p>Hello Devid</p></a>
                     <!-- <a     class="g-membership ui-btn ui-mini ui-icon-star ui-btn-icon-left ui-shadow " data-transition="slide"  href="#accountPage">Become Gold Member </a> -->
                 </div>
+                <hr>
+                <!-- #region -->
+                <div class="">
                 
                     <ul data-role="listview">
                         <li><a class="ui-btn ui-icon-bullets ui-btn-icon-left ui-shadow" data-transition="slide"  href="#expenditurePage">Expenditure</a> </li>
@@ -60,6 +93,10 @@
                         <li><a class="ui-btn ui-icon-action ui-btn-icon-left ui-shadow " href="#">Invite a member</a> </li>
                         <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li>
                     </ul>
+                </div>
+                <!-- <div>
+                    <p>&copy; Guest App 2020</p>
+                </div> -->
             </div>
         </div>
         <!-- Panels in homePage End -->
@@ -89,11 +126,12 @@
                             fullWidth: true,
                             indicators: true
                         });
-                        M.toast({html: '<p class="g-toast-success">I am a toast!</p>'})
+                        M.toast({html: '<p class="g-toast g-toast-success">I am a toast!</p>'})
                         // M.toast({html: 'I am a toast!', classes: 'rounded'});
                     });
                 </script>
               </div>
+              
               <div class="row">
                 <div class="col s6 m2">
                     <div class="card-panel g-card-panel g-card-panel-guest">
@@ -130,6 +168,7 @@
                     </div>
                 </div>
               </div>
+              <hr>
               <br>
             <div id="expenditureContainer" style="height: 300px; width: 320px;"></div>
             <br>
@@ -289,11 +328,8 @@
                     <input type="number" data-clear-btn="true" pattern="/^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[eE][+-][0-9]+)?$/" name="guestAge" id="guestAge" placeholder="Guest Age"/>
                     <button type="submit" data-rel="back" onclick="app.addNewGuest(this)"  style="background-color: darkseagreen;" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all">Save</button>
                 </div>
-            </form>    
-            
-                
-                
-            
+            </form> 
+               
         </div>
         <div class="g-page-header"  data-role="header" data-position="fixed">
             <h1>Guests</h1>
@@ -309,16 +345,11 @@
             </script>
             <div id="divGuestList">
             </div>
-            <div class="fixed-action-btn">
-                <a href="#popupAddGuest" data-rel="popup" id="linkAddGuest"  data-position-to="window" data-transition="popup" class="btn-floating btn-large red">
+            <div class="fixed-action-btn"> 
+                <!-- href="#popupAddGuest"  -->
+                <a href="#modalAddGuest" onclick="app.adjustModalFields()" id="linkAddGuest"   class="btn-floating btn-large red pulse">
                   <i class="large material-icons">add</i>
                 </a>
-                <!-- <ul>
-                  <li><a class="btn-floating red"><i class="material-icons">insert_chart</i></a></li>
-                  <li><a class="btn-floating yellow darken-1"><i class="material-icons">format_quote</i></a></li>
-                  <li><a class="btn-floating green"><i class="material-icons">publish</i></a></li>
-                  <li><a class="btn-floating blue"><i class="material-icons">attach_file</i></a></li>
-                </ul> -->
               </div>
         </div>
         <div data-role="footer" data-position="fixed">
@@ -395,6 +426,7 @@
     </script>
     <script>
         $(document).ready(function(){
+            $('.modal').modal();
            // $('#formAddNewGuest').on("submit",app.AddNewGuestSubmit());
            $('#formAddNewGuest').validate({
     rules: {

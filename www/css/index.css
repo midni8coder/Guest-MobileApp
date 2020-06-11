@@ -20,7 +20,7 @@
     /* max-height: 100%; */
 }
 
-.g-page-header, .g-page-header>a {
+.g-page-header, .g-page-header>a, .g-side-panel{
     /* color: #fff !important; */
     background-color: #468075 !important;
     border-color: rgba(88, 161, 147, 0.2) !important;
@@ -30,12 +30,14 @@
 .ui-btn-active {
     text-shadow: unset !important;
 }
+.g-toast{
+    font-size: 1.5em !important; 
+    text-align: center;
+}
 .g-toast-success{
     color: teal;
-    font-size: 1.5em !important; 
-    
 }
-.g-homePage,[data-role="page"]{
+.g-homePage,[data-role="page"],  .modal {
     background-color: #468075 !important;
     border-color: rgba(88, 161, 147, 0.2) !important;
     background: linear-gradient(180deg, #29323c , #485563) repeat !important;
@@ -92,4 +94,10 @@
 }
 .g-card-panel{
     transition: 1s ease-in-out;
+}
+.g-profile-img{
+    width:100px;
+    height:100px;
+    border-radius: 100px;
+    /* margin-bottom: 10px; */
 }
