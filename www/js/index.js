@@ -23,6 +23,9 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        $('.modal-close').click(function(){
+            $('.modal').hide();
+        });
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -46,12 +49,10 @@ var app = {
             return 0;    
         }    
     },
-    onEditClick:function(control,formID, type){
+    onAccountEditClick:function(control,formID, type){
         
         if($(control).text().toLowerCase() == "edit"){
-            $(control).removeClass('ui-icon-edit').addClass('ui-icon-check').text('Save');
-            // $('[name="name"]','#'+formID).removeAttr('disabled');
-            // $('[name="name"]','#'+formID).parent().removeClass("ui-state-disabled");
+            $('i',control).text('done');
             $.each($('input:visible','#'+formID), function(id,value){
                 $(value).removeAttr('disabled');
                 $(value).parent().removeClass("ui-state-disabled");;
@@ -59,13 +60,12 @@ var app = {
         }
         else
         {
-            $(control).removeClass('ui-icon-check').addClass('ui-icon-edit').text('Edit');
-            // $('[name="name"]','#'+formID).attr('disabled','disabled');
-            // $('[name="name"]','#'+formID).parent().addClass("ui-state-disabled");
+            $('i',control).text('edit');
             $.each($('input:visible','#'+formID), function(id,value){
                 $(value).attr('disabled','disabled');
                 $(value).parent().addClass("ui-state-disabled");
-            })
+            });
+            M.toast({html: '<p class="g-toast g-toast-success">Data Updated..!!</p>'})
         }
         
     },
@@ -80,14 +80,35 @@ var app = {
         });
     },
     adjustModalFields:function (){
-        $('.modal').hide();
-        setTimeout(function(){
-            $.each($('.modal input'),function(i,element){
-                $(element).parent().remove();
-                $(element).insertAfter($(element).parent().prev());
+            app.showLoader();
+            // $('.modal').hide();
+            setTimeout(function(){
+                if($('.modal div[class*=ui]').length > 0){
+                    $.each($('.modal input'),function(i,element){
+                        $(element).parent().remove();
+                        $(element).insertAfter($(element).parent().prev());
+                    });
+                }
+                $('.modal').show();
+                $.mobile.loading('hide');
+                // $('#jqLoader').hide();
+            },1500);
+        
+    },
+    showLoader:function(){
+        var element=$('#jqLoader'),
+            theme =element.jqmData('theme'),
+            msgTxt = element.jqmData('msgtext'),
+            txtVisible =element.jqmData('text-visible'),
+            textonly =element.jqmData('textonly'),
+            html =element.jqmData('html') || '';
+            $.mobile.loading('show',{
+                text:msgTxt,
+                textVisible:txtVisible,
+                theme:theme,
+                textonly:textonly,
+                html:html
             });
-            $('.modal').show();
-        },1500)
     },
     addNewGuest:function(control){
         var newGuest = {};

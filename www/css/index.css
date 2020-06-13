@@ -27,8 +27,16 @@
     background: linear-gradient(180deg, #58a193, #0c0e0d) repeat !important;
     /* background: linear-gradient(180deg, #29323c , #485563) repeat; */
 }
+.g-page-header{
+    height: 60px;
+}
 .ui-btn-active {
     text-shadow: unset !important;
+}
+.g-loader{
+    left:50%;
+    right: 50%;
+    text-align:center;
 }
 .g-toast{
     font-size: 1.5em !important; 
@@ -37,7 +45,7 @@
 .g-toast-success{
     color: teal;
 }
-.g-homePage,[data-role="page"],  .modal {
+.g-homePage, .ui-content,  .modal {
     background-color: #468075 !important;
     border-color: rgba(88, 161, 147, 0.2) !important;
     background: linear-gradient(180deg, #29323c , #485563) repeat !important;
@@ -100,4 +108,15 @@
     height:100px;
     border-radius: 100px;
     /* margin-bottom: 10px; */
+}
+.g-account-header{
+    font-size: 20px;
+}
+.g-account-edit-icon{
+    position: relative;
+    left: 280px;
+    top: 150px;
+}
+.modal-footer a, .modal-footer a:active, .modal-footer a:visited{
+    color:black !important;
 }

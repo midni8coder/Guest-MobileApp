@@ -49,6 +49,7 @@
     <content src="index.html" />
     <access origin="*" />
     <access origin="*.googleapis.*" />
+    <access origin="*.gstatic.*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
