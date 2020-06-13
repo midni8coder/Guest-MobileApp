@@ -28,7 +28,7 @@
     text-decoration: underline;
 }
 
-.g-page-header, .g-page-header>a, .g-side-panel, .ui-listview li, .g-card-panel {
+.g-page-header, .g-page-header>a, .g-side-panel, .g-card-panel {
     /* color: #fff !important; */
     background-color: #468075 !important;
     border-color: rgba(88, 161, 147, 0.2) !important;
