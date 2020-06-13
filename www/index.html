@@ -71,12 +71,12 @@
     <!-- home page start -->
     <div data-role="page" id="homePage" class="g-homePage">
         <!-- Panels  in homePage start -->
-        <div class="g-page-header " data-position="left" data-position-fixed="true" data-role="panel" id="menuHome"  data-display="overlay">
+        <div class="g-page-header" data-position="left" data-position-fixed="true" data-role="panel" id="menuHome"  data-display="overlay">
             <div class="ui-panel-inner">
-                <div>
+                <div class="">
                     <a class="" data-transition="slide"  href="#accountPage">
                     <img src="content/user/profile-img.JPG" alt="" class="g-profile-img"><br>
-                    <p class="g-account-header">Hello Devid</p></a>
+                    <p class="g-account-header g-underline">Hello Devid</p></a>
                     <!-- <a     class="g-membership ui-btn ui-mini ui-icon-star ui-btn-icon-left ui-shadow " data-transition="slide"  href="#accountPage">Become Gold Member </a> -->
                 </div>
                 <hr>
@@ -261,9 +261,9 @@
         </div>
         <div data-role="main" class="ui-content">
                 <!-- <p>Account Settings</p> -->
-               <div id="totalExpenditure">
-               </div>
-               <div id="expContainer" style="height: 300px; width: 320px;"></div>
+               <!-- <div id="totalExpenditure">
+               </div> -->
+               <!-- <div id="expContainer" style="height: 300px; width: 320px;"></div> -->
                <script>
                 $(document).ready(function(){
                     //showChart("pie", "expContainer", "Total expenditure in May - 2020","getExpenditureData");
@@ -376,7 +376,6 @@
         </div>
         <div data-role="main" class="ui-content">
             <div class="g-div-overflow">
-                <div class="g-notes"></div>
                 <table border="1" data-role="table" data-mode="columntoggle" class="ui-responsive table-stripe ui-shadow" >
                     <thead style="background-color: darkseagreen;">
                         <tr>

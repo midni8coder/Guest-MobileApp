@@ -1,15 +1,20 @@
 /* *{
     font-family: monospace !important;
 } */
-/* @font-face {
+@font-face {
     font-family: newFont;
     src: url(fonts/Montserrat-Regular.ttf);
   }
-   */
+  
  * {
     font-family: newFont;
     /* font-size: 20px; */
     color:whitesmoke;
+  }
+  .ui-listview a {
+    font-family: newFont !important;
+    /* font-size: 20px; */
+    /* color:whitesmoke; */
   }
   .ui-content{
     color:black !important;
@@ -19,8 +24,11 @@
     overflow: scroll;
     /* max-height: 100%; */
 }
+.g-underline{
+    text-decoration: underline;
+}
 
-.g-page-header, .g-page-header>a, .g-side-panel{
+.g-page-header, .g-page-header>a, .g-side-panel, .ui-listview li, .g-card-panel {
     /* color: #fff !important; */
     background-color: #468075 !important;
     border-color: rgba(88, 161, 147, 0.2) !important;
@@ -100,9 +108,10 @@
 .g-card-panel-orders{
     background: linear-gradient(60deg,#00c853   ,#c3cfe2);
 }
-.g-card-panel{
+/* .g-card-panel{
     transition: 1s ease-in-out;
-}
+    background: linear-gradient(60deg,#09203f  ,#537895) !important;
+} */
 .g-profile-img{
     width:100px;
     height:100px;
