@@ -74,6 +74,7 @@
     <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     <access origin="*" />
     <access origin="*.googleapis.*" />
+    <access origin="*.somee.*" />
     <access origin="*gstatic" />
     <allow-intent href="market:*" />
     <preference name="loglevel" value="DEBUG" />

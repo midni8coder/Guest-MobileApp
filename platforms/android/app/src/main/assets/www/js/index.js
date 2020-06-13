@@ -15,6 +15,8 @@ var app = {
     getGuestList:function(){
         $.ajax({url: baseAPIURL+"common/GetGuestList", success: function(result){
             guestList = result;
+            app.showGuestList();
+
     }});
     },
 
@@ -81,10 +83,11 @@ var app = {
         
     },
     showGuestList:function(){
+        // app.getGuestList();
         //alert('called'+this.data.length);
         $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
-        $.each(this.data.sort(this.GetSortOrder("name")), function(id, value){
-            $('<li>'+value.name+'</li>').appendTo('#guestList');
+        $.each(guestList.sort(this.GetSortOrder("FULLNAME")), function(id, value){
+            $('<li>'+value.FULLNAME+'</li>').appendTo('#guestList');
         });
     },
     adjustModalFields:function (){
