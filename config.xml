@@ -97,6 +97,7 @@
     </platform>
     <access origin="*" />
     <access origin="*.googleapis.*" />
+     <access origin="*.somee.*" />
     <access origin="*.gstatic.*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
@@ -107,6 +108,7 @@
     <platform name="android">
         <access origin="*" />
         <access origin="*.googleapis.*" />
+        <access origin="*.somee.*" />
         <access origin="*gstatic" />
         <allow-intent href="market:*" />
     </platform>

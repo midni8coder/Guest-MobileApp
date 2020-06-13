@@ -1,4 +1,6 @@
 
+var guestList =  [];
+var baseAPIURL = "https://midni8coder.somee.com/api/guest/";
 var app = {
     // Application Constructor
     initialize: function() {
@@ -10,6 +12,12 @@ var app = {
         {'name':'Devraj', 'id':3,'room':'B1 302 1'},
         {'name':'Samantha Reddy', 'id':3,'room':'B1 103 4'},
     ],
+    getGuestList:function(){
+        $.ajax({url: baseAPIURL+"common/GetGuestList", success: function(result){
+            guestList = result;
+    }});
+    },
+
     // Bind Event Listeners
     //
     // Bind any events that are required on startup. Common events are:
