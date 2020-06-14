@@ -1,6 +1,6 @@
 
 var guestList =  [];
-var baseAPIURL = "https://midni8coder.somee.com/api/guest/";
+var baseAPIURL = "http://midni8coder.somee.com/api/guest/";
 var app = {
     // Application Constructor
     initialize: function() {
