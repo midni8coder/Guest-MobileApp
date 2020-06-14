@@ -13,11 +13,21 @@ var app = {
         {'name':'Samantha Reddy', 'id':3,'room':'B1 103 4'},
     ],
     getGuestList:function(){
-        $.ajax({url: baseAPIURL+"common/GetGuestList", success: function(result){
-            guestList = result;
-            app.showGuestList();
-
-    }});
+        try
+        {       
+            $.ajax({url: baseAPIURL+"common/GetGuestList", success: function(result){
+                    guestList = result;
+                    app.showGuestList();
+                }
+            });
+        }
+        catch(ex)
+        {
+            alert(ex);
+            alert(JSON.stringify(ex));
+            alert(ex.message);
+            alert(ex.status);
+        }
     },
 
     // Bind Event Listeners
@@ -85,10 +95,21 @@ var app = {
     showGuestList:function(){
         // app.getGuestList();
         //alert('called'+this.data.length);
-        $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
-        $.each(guestList.sort(this.GetSortOrder("FULLNAME")), function(id, value){
-            $('<li>'+value.FULLNAME+'</li>').appendTo('#guestList');
-        });
+        try
+        {
+            $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
+            $.each(guestList.sort(this.GetSortOrder("FULLNAME")), function(id, value){
+                $('<li>'+value.FULLNAME+'</li>').appendTo('#guestList');
+                alert(value.FULLNAME);
+            });
+        }
+        catch(ex)
+        {
+            alert(ex);
+            alert(JSON.stringify(ex));
+            alert(ex.message);
+            alert(ex.status);
+        }
     },
     adjustModalFields:function (){
             app.showLoader();
