@@ -14,10 +14,16 @@ var app = {
     ],
     getGuestList:function(){
         try
-        {       
+        {  
+            alert('Start');     
             $.ajax({url: baseAPIURL+"common/GetGuestList", success: function(result){
                     guestList = result;
                     app.showGuestList();
+                },
+                error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                    $('#error').append('Error: ' + errorMessage);
+                    $('#error').append('<br>textStatus: ' + textStatus);
+                    $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
                 }
             });
         }
