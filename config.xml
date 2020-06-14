@@ -95,20 +95,24 @@
         <icon height="360" platform="windows" src="www/res/icon/windows/Wide310x150Logo.scale-240.png" width="744" />
         <splash height="1920" platform="windows" src="www/res/screen/windows/SplashScreenPhone.scale-240.png" width="1152" />
     </platform>
-    <access origin="*" />
-    <access origin="*.googleapis.*" />
-     <access origin="*.somee.*" />
-    <access origin="*.gstatic.*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
+    <access origin="*" launch-external="yes" />
+    <access origin="*.googleapis.*" launch-external="yes"  />
+     <access origin="*.somee.*" launch-external="yes"  />
+    <access origin="*.gstatic.*" launch-external="yes"  />
+    <access origin="http://*" launch-external="yes" />
+    <access origin="https://*" launch-external="yes" />
+    <allow-intent href="http://*/*" launch-external="yes"  />
+    <allow-intent href="https://*/*" launch-external="yes"  />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <platform name="android">
-        <access origin="*" />
+        <access origin="*" launch-external="yes" />
+        <access origin="http://*" launch-external="yes" />
+        <access origin="https://*" launch-external="yes" />
         <access origin="*.googleapis.*" />
-        <access origin="*.somee.*" />
+        <access origin="*.somee.*" launch-external="yes"  />
         <access origin="*gstatic" />
         <allow-intent href="market:*" />
     </platform>

@@ -39,6 +39,9 @@
     },
     "cordova-plugin-vibration": {
       "PACKAGE_NAME": "org.guest.management"
+    },
+    "cordova-plugin-whitelist": {
+      "PACKAGE_NAME": "org.guest.management"
     }
   },
   "dependent_plugins": {

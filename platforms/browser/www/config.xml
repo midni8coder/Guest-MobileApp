@@ -8,12 +8,14 @@
         PhoneGap Team
     </author>
     <content src="index.html" />
-    <access origin="*" />
-    <access origin="*.googleapis.*" />
-    <access origin="*.somee.*" />
-    <access origin="*.gstatic.*" />
-    <allow-intent href="http://*/*" />
-    <allow-intent href="https://*/*" />
+    <access launch-external="yes" origin="*" />
+    <access launch-external="yes" origin="*.googleapis.*" />
+    <access launch-external="yes" origin="*.somee.*" />
+    <access launch-external="yes" origin="*.gstatic.*" />
+    <access launch-external="yes" origin="http://*" />
+    <access launch-external="yes" origin="https://*" />
+    <allow-intent href="http://*/*" launch-external="yes" />
+    <allow-intent href="https://*/*" launch-external="yes" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
