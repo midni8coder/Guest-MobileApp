@@ -16,12 +16,28 @@ var app = {
         try
         {  
             $('#error').append('URL: ' + baseAPIURL+"common/GetGuestList");
-            alert('Start'); 
-            debugger;
-            $.get(baseAPIURL+"common/GetGuestList", function(data) {
-                guestList = data;
-                app.showGuestList();
-              });    
+            
+            // $.get(baseAPIURL+"common/GetGuestList", function(data) {
+            //     guestList = data;
+            //     app.showGuestList();
+            //   });   
+              $.ajax({
+				crossDomain: true,
+				url: baseAPIURL+"common/GetGuestList",
+				method: 'get',
+				data: {},
+				//contentType: 'json',
+				success: function (response) {
+                    $('#error').append('response: ' + response);
+                    guestList = response;
+                    app.showGuestList();
+				},
+				error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                            $('#error').append('Error: ' + errorMessage);
+                            $('#error').append('<br>textStatus: ' + textStatus);
+                            $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
+                        }
+			}) 
             // $.ajax({type: "GET", url: baseAPIURL+"common/GetGuestList", success: function(result){
             //         guestList = result;
             //         app.showGuestList();
