@@ -432,9 +432,15 @@
         app.initialize();
     </script>
     <script>
+        $(document).bind("mobileinit",function(){
+            $.mobile.allowCrossDomainPages= true;
+            alert($.mobile.allowCrossDomainPages);
+        });
         $(document).ready(function(){
             $('.modal').modal({opacity:0.3});
             $.support.cors = true;
+            alert($.support.cors);
+
            // $('#formAddNewGuest').on("submit",app.AddNewGuestSubmit());
            $('#formAddNewGuest').validate({
     rules: {
