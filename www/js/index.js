@@ -15,6 +15,7 @@ var app = {
     getGuestList:function(){
         try
         {  
+            $('#error').append('URL: ' + baseAPIURL+"common/GetGuestList");
             alert('Start');     
             $.ajax({url: baseAPIURL+"common/GetGuestList", success: function(result){
                     guestList = result;
