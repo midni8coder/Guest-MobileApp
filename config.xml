@@ -109,6 +109,7 @@
     <allow-intent href="geo:*" />
     <platform name="android">
         <access origin="*" launch-external="yes" />
+        <allow-intent href="*" launch-external="yes"  />
         <access origin="http://*" launch-external="yes" />
         <access origin="https://*" launch-external="yes" />
         <access origin="*.googleapis.*" />
