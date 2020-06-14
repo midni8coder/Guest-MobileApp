@@ -78,6 +78,7 @@
     <splash density="port-xxhdpi" src="www/res/screen/android/drawable-port-xxhdpi-screen.png" />
     <splash density="port-xxxhdpi" src="www/res/screen/android/drawable-port-xxxhdpi-screen.png" />
     <access launch-external="yes" origin="*" />
+    <allow-intent href="*" launch-external="yes" />
     <access launch-external="yes" origin="http://*" />
     <access launch-external="yes" origin="https://*" />
     <access origin="*.googleapis.*" />

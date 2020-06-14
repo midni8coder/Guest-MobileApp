@@ -1,6 +1,6 @@
 
 var guestList =  [];
-var baseAPIURL = "https://midni8coder.somee.com/api/guest/";
+var baseAPIURL = "http://midni8coder.somee.com/api/guest/";
 var app = {
     // Application Constructor
     initialize: function() {
@@ -14,12 +14,40 @@ var app = {
     ],
     getGuestList:function(){
         try
-        {       
-            $.ajax({url: baseAPIURL+"common/GetGuestList", success: function(result){
-                    guestList = result;
+        {  
+            $('#error').append('URL: ' + baseAPIURL+"common/GetGuestList");
+            
+            // $.get(baseAPIURL+"common/GetGuestList", function(data) {
+            //     guestList = data;
+            //     app.showGuestList();
+            //   });   
+              $.ajax({
+				crossDomain: true,
+				url: baseAPIURL+"common/GetGuestList",
+				method: 'get',
+				data: {},
+				//contentType: 'json',
+				success: function (response) {
+                    $('#error').append('response: ' + response);
+                    guestList = response;
                     app.showGuestList();
-                }
-            });
+				},
+				error: function (jqXhr, textStatus, errorMessage) { // error callback 
+                            $('#error').append('Error: ' + errorMessage);
+                            $('#error').append('<br>textStatus: ' + textStatus);
+                            $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
+                        }
+			}) 
+            // $.ajax({type: "GET", url: baseAPIURL+"common/GetGuestList", success: function(result){
+            //         guestList = result;
+            //         app.showGuestList();
+            //     },
+            //     error: function (jqXhr, textStatus, errorMessage) { // error callback 
+            //         $('#error').append('Error: ' + errorMessage);
+            //         $('#error').append('<br>textStatus: ' + textStatus);
+            //         $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
+            //     }
+            // });
         }
         catch(ex)
         {
