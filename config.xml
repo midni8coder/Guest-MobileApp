@@ -14,7 +14,7 @@ xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cor
     <preference name="android-minSdkVersion" value="28" />
     <preference name="phonegap-version" value="cli-9.0.0" />
     <preference name="StatusBarOverlaysWebView" value="true" />
-    <preference name="StatusBarBackgroundColor" value="#000000" />
+    <preference name="StatusBarBackgroundColor" value="#58a193" />
     <preference name="StatusBarStyle" value="lightcontent" />
     <preference name="StatusBarDefaultScrollToTop" value="false" />
     <plugin name="cordova-plugin-battery-status" source="npm" spec="~1.2.4" />
