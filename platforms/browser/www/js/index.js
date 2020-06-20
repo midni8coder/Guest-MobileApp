@@ -38,23 +38,13 @@ var app = {
                             $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
                         }
 			}) 
-            // $.ajax({type: "GET", url: baseAPIURL+"common/GetGuestList", success: function(result){
-            //         guestList = result;
-            //         app.showGuestList();
-            //     },
-            //     error: function (jqXhr, textStatus, errorMessage) { // error callback 
-            //         $('#error').append('Error: ' + errorMessage);
-            //         $('#error').append('<br>textStatus: ' + textStatus);
-            //         $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
-            //     }
-            // });
         }
         catch(ex)
         {
-            alert(ex);
-            alert(JSON.stringify(ex));
+            // alert(ex);
+            // alert(JSON.stringify(ex));
             alert(ex.message);
-            alert(ex.status);
+            // alert(ex.status);
         }
     },
 
@@ -128,15 +118,12 @@ var app = {
             $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
             $.each(guestList.sort(this.GetSortOrder("FULLNAME")), function(id, value){
                 $('<li>'+value.FULLNAME+'</li>').appendTo('#guestList');
-                alert(value.FULLNAME);
+                // alert(value.FULLNAME);
             });
         }
         catch(ex)
         {
-            alert(ex);
-            alert(JSON.stringify(ex));
             alert(ex.message);
-            alert(ex.status);
         }
     },
     adjustModalFields:function (){
