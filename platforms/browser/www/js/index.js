@@ -14,13 +14,7 @@ var app = {
     ],
     getGuestList:function(){
         try
-        {  
-            $('#error').append('URL: ' + baseAPIURL+"common/GetGuestList");
-            
-            // $.get(baseAPIURL+"common/GetGuestList", function(data) {
-            //     guestList = data;
-            //     app.showGuestList();
-            //   });   
+        {    
               $.ajax({
 				crossDomain: true,
 				url: baseAPIURL+"common/GetGuestList",
@@ -28,7 +22,7 @@ var app = {
 				data: {},
 				//contentType: 'json',
 				success: function (response) {
-                    // $('#error').append('response: ' + response);
+                    //$('#error').append('response: ' + response);
                     guestList = response;
                     app.showGuestList();
 				},
@@ -72,7 +66,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        alert(StatusBar);
+        // alert(StatusBar);
     },
     GetSortOrder: function(prop) {    
         return function(a, b) {    
@@ -108,14 +102,11 @@ var app = {
         
     },
     showGuestList:function(){
-        // app.getGuestList();
-        //alert('called'+this.data.length);
         try
         {
             $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
             $.each(guestList.sort(this.GetSortOrder("FULLNAME")), function(id, value){
                 $('<li>'+value.FULLNAME+'</li>').appendTo('#guestList');
-                // alert(value.FULLNAME);
             });
         }
         catch(ex)

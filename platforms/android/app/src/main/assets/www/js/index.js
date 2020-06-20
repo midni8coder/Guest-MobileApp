@@ -14,13 +14,7 @@ var app = {
     ],
     getGuestList:function(){
         try
-        {  
-            $('#error').append('URL: ' + baseAPIURL+"common/GetGuestList");
-            
-            // $.get(baseAPIURL+"common/GetGuestList", function(data) {
-            //     guestList = data;
-            //     app.showGuestList();
-            //   });   
+        {    
               $.ajax({
 				crossDomain: true,
 				url: baseAPIURL+"common/GetGuestList",
@@ -28,7 +22,7 @@ var app = {
 				data: {},
 				//contentType: 'json',
 				success: function (response) {
-                    $('#error').append('response: ' + response);
+                    //$('#error').append('response: ' + response);
                     guestList = response;
                     app.showGuestList();
 				},
@@ -38,23 +32,10 @@ var app = {
                             $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
                         }
 			}) 
-            // $.ajax({type: "GET", url: baseAPIURL+"common/GetGuestList", success: function(result){
-            //         guestList = result;
-            //         app.showGuestList();
-            //     },
-            //     error: function (jqXhr, textStatus, errorMessage) { // error callback 
-            //         $('#error').append('Error: ' + errorMessage);
-            //         $('#error').append('<br>textStatus: ' + textStatus);
-            //         $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
-            //     }
-            // });
         }
         catch(ex)
         {
-            alert(ex);
-            alert(JSON.stringify(ex));
             alert(ex.message);
-            alert(ex.status);
         }
     },
 
@@ -85,7 +66,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-        alert(StatusBar);
+        // alert(StatusBar);
     },
     GetSortOrder: function(prop) {    
         return function(a, b) {    
@@ -121,22 +102,16 @@ var app = {
         
     },
     showGuestList:function(){
-        // app.getGuestList();
-        //alert('called'+this.data.length);
         try
         {
             $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
             $.each(guestList.sort(this.GetSortOrder("FULLNAME")), function(id, value){
                 $('<li>'+value.FULLNAME+'</li>').appendTo('#guestList');
-                alert(value.FULLNAME);
             });
         }
         catch(ex)
         {
-            alert(ex);
-            alert(JSON.stringify(ex));
             alert(ex.message);
-            alert(ex.status);
         }
     },
     adjustModalFields:function (){
