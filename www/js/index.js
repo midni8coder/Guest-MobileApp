@@ -14,13 +14,7 @@ var app = {
     ],
     getGuestList:function(){
         try
-        {  
-            $('#error').append('URL: ' + baseAPIURL+"common/GetGuestList");
-            
-            // $.get(baseAPIURL+"common/GetGuestList", function(data) {
-            //     guestList = data;
-            //     app.showGuestList();
-            //   });   
+        {    
               $.ajax({
 				crossDomain: true,
 				url: baseAPIURL+"common/GetGuestList",
@@ -28,7 +22,7 @@ var app = {
 				data: {},
 				//contentType: 'json',
 				success: function (response) {
-                    $('#error').append('response: ' + response);
+                    //$('#error').append('response: ' + response);
                     guestList = response;
                     app.showGuestList();
 				},
