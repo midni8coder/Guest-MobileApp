@@ -28,7 +28,7 @@ var app = {
 				data: {},
 				//contentType: 'json',
 				success: function (response) {
-                    $('#error').append('response: ' + response);
+                    // $('#error').append('response: ' + response);
                     guestList = response;
                     app.showGuestList();
 				},
@@ -41,10 +41,7 @@ var app = {
         }
         catch(ex)
         {
-            // alert(ex);
-            // alert(JSON.stringify(ex));
             alert(ex.message);
-            // alert(ex.status);
         }
     },
 
