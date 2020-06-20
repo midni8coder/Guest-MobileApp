@@ -14,15 +14,18 @@
     <access launch-external="yes" origin="*.gstatic.*" />
     <access launch-external="yes" origin="http://*" />
     <access launch-external="yes" origin="https://*" />
-    <allow-intent href="http://*/*" launch-external="yes" />
-    <allow-intent href="https://*/*" launch-external="yes" />
+    <allow-intent href="http://*/*" />
+    <allow-intent href="https://*/*" />
     <allow-intent href="tel:*" />
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-navigation href="*.somee.*" />
+    <allow-intent href="https://midni8coder.somee.com" />
+    <allow-navigation href="https://midni8coder.somee.com" />
+    <access origin="https://midni8coder.somee.com" />
     <preference name="DisallowOverscroll" value="true" />
-    <preference name="android-minSdkVersion" value="14" />
+    <preference name="android-minSdkVersion" value="19" />
     <preference name="StatusBarOverlaysWebView" value="true" />
     <preference name="StatusBarBackgroundColor" value="#000000" />
     <preference name="StatusBarStyle" value="lightcontent" />
