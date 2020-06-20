@@ -108,4 +108,12 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <allow-navigation href="*.somee.*" />
+    <access origin="*" />
+        
+        <allow-intent href="*" />
+        <allow-navigation href="*" />
+        
+        <allow-intent href="https://midni8coder.somee.com" />
+        <allow-navigation href="https://midni8coder.somee.com" />
+        <access origin="https://midni8coder.somee.com" />
 </widget>

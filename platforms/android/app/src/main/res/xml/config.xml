@@ -88,6 +88,9 @@
     <access origin="*" />
     <allow-intent href="*" />
     <allow-navigation href="*" />
+    <allow-intent href="https://midni8coder.somee.com" />
+    <allow-navigation href="https://midni8coder.somee.com" />
+    <access origin="https://midni8coder.somee.com" />
     <preference name="loglevel" value="DEBUG" />
     <preference name="DisallowOverscroll" value="true" />
     <preference name="android-minSdkVersion" value="14" />
