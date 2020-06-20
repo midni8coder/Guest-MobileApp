@@ -107,15 +107,20 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+    <allow-navigation href="*.somee.*" />
     <platform name="android">
-        <access origin="*" launch-external="yes" />
-        <allow-intent href="*" launch-external="yes"  />
+        <!-- <access origin="*" />
+        <allow-intent href="*" launch-external="yes"  /> -->
         <access origin="http://*" launch-external="yes" />
         <access origin="https://*" launch-external="yes" />
         <access origin="*.googleapis.*" />
         <access origin="*.somee.*" launch-external="yes"  />
         <access origin="*gstatic" />
         <allow-intent href="market:*" />
+        <allow-navigation href="*.somee.*" />
+        <access origin="*" />
+        <allow-intent href="*" />
+        <allow-navigation href="*" />
     </platform>
     <platform name="ios">
         <allow-intent href="itms:*" />
