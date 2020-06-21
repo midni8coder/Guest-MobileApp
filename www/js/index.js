@@ -1,40 +1,37 @@
-
-var guestList =  [];
+var guestList = [];
 var baseAPIURL = "https://midni8coder.somee.com/api/guest/";
+// var baseAPIURL = "https://localhost:44306/api/guest/";
 var app = {
     // Application Constructor
     initialize: function() {
         this.bindEvents();
     },
-    data:[
-        {'name':'Devid L', 'id':1,'room':'B1 106 4'},
-        {'name':'Ramesh Naik', 'id':2,'room':'B1 102 4'},
-        {'name':'Devraj', 'id':3,'room':'B1 302 1'},
-        {'name':'Samantha Reddy', 'id':3,'room':'B1 103 4'},
+    data: [
+        { 'name': 'Devid L', 'id': 1, 'room': 'B1 106 4' },
+        { 'name': 'Ramesh Naik', 'id': 2, 'room': 'B1 102 4' },
+        { 'name': 'Devraj', 'id': 3, 'room': 'B1 302 1' },
+        { 'name': 'Samantha Reddy', 'id': 3, 'room': 'B1 103 4' },
     ],
-    getGuestList:function(){
-        try
-        {    
-              $.ajax({
-				crossDomain: true,
-				url: baseAPIURL+"common/GetGuestList",
-				method: 'get',
-				data: {},
-				//contentType: 'json',
-				success: function (response) {
+    getGuestList: function() {
+        try {
+            $.ajax({
+                crossDomain: true,
+                url: baseAPIURL + "common/GetGuestList",
+                method: 'get',
+                data: {},
+                //contentType: 'json',
+                success: function(response) {
                     //$('#error').append('response: ' + response);
                     guestList = response;
                     app.showGuestList();
-				},
-				error: function (jqXhr, textStatus, errorMessage) { // error callback 
-                            $('#error').append('Error: ' + errorMessage);
-                            $('#error').append('<br>textStatus: ' + textStatus);
-                            $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
-                        }
-			}) 
-        }
-        catch(ex)
-        {
+                },
+                error: function(jqXhr, textStatus, errorMessage) { // error callback 
+                    $('#error').append('Error: ' + errorMessage);
+                    $('#error').append('<br>textStatus: ' + textStatus);
+                    $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
+                }
+            })
+        } catch (ex) {
             alert(ex.message);
         }
     },
@@ -52,7 +49,7 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
-        $('.modal-close').click(function(){
+        $('.modal-close').click(function() {
             $('.modal').hide();
         });
     },
@@ -68,110 +65,131 @@ var app = {
         console.log('Received Event: ' + id);
         // alert(StatusBar);
     },
-    GetSortOrder: function(prop) {    
-        return function(a, b) {    
-            if (a[prop].toLowerCase() > b[prop].toLowerCase()) {    
-                return 1;    
-            } else if (a[prop].toLowerCase() < b[prop].toLowerCase()) {    
-                return -1;    
-            }    
-            return 0;    
-        }    
+    GetSortOrder: function(prop) {
+        return function(a, b) {
+            if (a[prop].toLowerCase() > b[prop].toLowerCase()) {
+                return 1;
+            } else if (a[prop].toLowerCase() < b[prop].toLowerCase()) {
+                return -1;
+            }
+            return 0;
+        }
     },
-    onAccountEditClick:function(control,formID, type){
-        
-        if($(control).text().toLowerCase() == "edit"){
-            $('i',control).text('done');
-            $.each($('input:visible','#'+formID), function(id,value){
+    onAccountEditClick: function(control, formID, type) {
+
+        if ($(control).text().toLowerCase() == "edit") {
+            $('i', control).text('done');
+            $.each($('input:visible', '#' + formID), function(id, value) {
                 $(value).removeAttr('disabled');
                 $(value).parent().removeClass("ui-state-disabled");;
             })
-        }
-        else
-        {
-            $('i',control).text('edit');
-            $.each($('input:visible','#'+formID), function(id,value){
-                $(value).attr('disabled','disabled');
+        } else {
+            $('i', control).text('edit');
+            $.each($('input:visible', '#' + formID), function(id, value) {
+                $(value).attr('disabled', 'disabled');
                 $(value).parent().addClass("ui-state-disabled");
             });
-            M.toast({html: '<p class="g-toast g-toast-success">Data Updated..!!</p>'})
+            M.toast({ html: '<p class="g-toast g-toast-success">Data Updated..!!</p>' })
         }
-        
+
     },
-    showExpenditure:function(divID, filter){
-        
+    showExpenditure: function(divID, filter) {
+
     },
-    showGuestList:function(){
-        try
-        {
+    showGuestList: function() {
+        try {
+            $('#guestList').remove();
             $('<ul id="guestList" data-role="listview" data-filter="true" data-inset="true" data-autodividers="true" ></ul>').appendTo('#divGuestList');
-            $.each(guestList.sort(this.GetSortOrder("FULLNAME")), function(id, value){
-                $('<li>'+value.FULLNAME+'</li>').appendTo('#guestList');
+            $.each(guestList.sort(this.GetSortOrder("FULLNAME")), function(id, value) {
+                $('<li>' + value.FULLNAME + '</li>').appendTo('#guestList');
             });
-        }
-        catch(ex)
-        {
+            $("#guestList").listview().listview('refresh');
+            // $('#closeAddGuest').click();
+        } catch (ex) {
             alert(ex.message);
         }
     },
-    adjustModalFields:function (){
-            app.showLoader();
-            // $('.modal').hide();
-            setTimeout(function(){
-                if($('.modal div[class*=ui]').length > 0){
-                    $.each($('.modal input'),function(i,element){
-                        $(element).parent().remove();
-                        $(element).insertAfter($(element).parent().prev());
-                    });
-                }
-                $('.modal').show();
-                $.mobile.loading('hide');
-                // $('#jqLoader').hide();
-            },1500);
-        
+    adjustModalFields: function() {
+        // app.showLoader();
+        // $('.modal').hide();
+        setTimeout(function() {
+            if ($('.modal-content div[class*=ui]').length > 0) {
+                $.each($('.modal-content input'), function(i, element) {
+                    $(element).parent().remove();
+                    $(element).insertAfter($(element).parent().prev());
+                });
+                $.each($('.modal-content textarea'), function(i, element) {
+                    $(element).attr('class', 'materialize-textarea');
+                });
+            }
+            // $('.modal').show();
+            M.updateTextFields();
+            $.mobile.loading('hide');
+            // $('#jqLoader').hide();
+        }, 1500);
+
     },
-    showLoader:function(){
-        var element=$('#jqLoader'),
-            theme =element.jqmData('theme'),
+    showLoader: function() {
+        var element = $('#jqLoader'),
+            theme = element.jqmData('theme'),
             msgTxt = element.jqmData('msgtext'),
-            txtVisible =element.jqmData('text-visible'),
-            textonly =element.jqmData('textonly'),
-            html =element.jqmData('html') || '';
-            $.mobile.loading('show',{
-                text:msgTxt,
-                textVisible:txtVisible,
-                theme:theme,
-                textonly:textonly,
-                html:html
-            });
+            txtVisible = element.jqmData('text-visible'),
+            textonly = element.jqmData('textonly'),
+            html = element.jqmData('html') || '';
+        $.mobile.loading('show', {
+            text: msgTxt,
+            textVisible: txtVisible,
+            theme: theme,
+            textonly: textonly,
+            html: html
+        });
     },
-    addNewGuest:function(control){
-        var newGuest = {};
-        if(control)
-        {
-        //    var name =  $(control).closest('#guestName').val();
-        newGuest.name = $('#guestName').val();
-        $('#guestName').val('');
+    saveGuest: function() {
+        try {
+            $.ajax({
+                crossDomain: true,
+                url: baseAPIURL + "common/SaveGuest",
+                method: 'post',
+                data: $('#formAddGuest').serializeArray(),
+                //contentType: 'json',
+                success: function(response) {
+                    guestList = response;
+                    app.showGuestList();
+                },
+                error: function(jqXhr, textStatus, errorMessage) { // error callback 
+                    $('#error').append('Error: ' + errorMessage);
+                    $('#error').append('<br>textStatus: ' + textStatus);
+                    $('#error').append('<br>jqXhr: ' + JSON.stringify(jqXhr));
+                }
+            })
+        } catch (ex) {
+            alert(ex.message);
         }
-        else
-        {
-            newGuest.name = "New Guest "+(this.data.length+1);
-            newGuest.id = this.data.length+1;
-            newGuest.room = "Room "+(this.data.length+1);
+    },
+    addNewGuest: function(control) {
+        var newGuest = {};
+        if (control) {
+            //    var name =  $(control).closest('#guestName').val();
+            newGuest.name = $('#guestName').val();
+            $('#guestName').val('');
+        } else {
+            newGuest.name = "New Guest " + (this.data.length + 1);
+            newGuest.id = this.data.length + 1;
+            newGuest.room = "Room " + (this.data.length + 1);
         }
         this.data.push(newGuest);
         $('#linkAddGuestClose').click();
         $('#guestList').empty();
-        $.each(this.data.sort(this.GetSortOrder("name")), function(id, value){
-            $('<li>'+value.name+'</li>').appendTo('#guestList');
+        $.each(this.data.sort(this.GetSortOrder("name")), function(id, value) {
+            $('<li>' + value.name + '</li>').appendTo('#guestList');
         });
         //$('<li>'+newGuest.name+'</li>').appendTo('#guestList');
         $("#guestList").listview().listview('refresh'); //.append(output)
     },
-    AddNewGuestSubmit:function(){
+    AddNewGuestSubmit: function() {
         alert('submitting')
     },
-    renderChart:function() {
+    renderChart: function() {
 
         var chart = new CanvasJS.Chart("chartContainer", {
             theme: "light2", // "light1", "light2", "dark1", "dark2"
@@ -200,6 +218,6 @@ var app = {
             }]
         });
         chart.render();
-        
-        }
+
+    }
 };

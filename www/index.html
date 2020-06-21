@@ -11,10 +11,9 @@
     <!-- <meta http-equiv="Content-Security-Policy"
         content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src * 'unsafe-eval' 'style-src-elem'" /> -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval'"> -->
-    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval';connect-src 'self' https://midni8coder.somee.com" />
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' http://* 'unsafe-inline'; script-src 'self' http://* 'unsafe-inline' 'unsafe-eval';connect-src 'self' https://midni8coder.somee.com" /> -->
     <meta name="description" content="This is a Hostel Management Application which can automate manual tasks." />
-    <meta name="keywords"
-        content="hostel management application,local hostels,paying guest application,rent management,goods management " />
+    <meta name="keywords" content="hostel management application,local hostels,paying guest application,rent management,goods management " />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" href="./js/jquery.mobile-1.4.5/GuestTheme.min.css">
     <link rel="stylesheet" href="./js/jquery.mobile-1.4.5/jquery.mobile-1.4.5.css">
@@ -36,70 +35,72 @@
 
 <body>
     <script src="Framework/Material/materialize/js/materialize.min.js"></script>
-    <button style="display: none;" id="jqLoader" class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Customdddd"
-    data-inline="true" data-html='<span class="ui-bar ui-shadow ui-overlay-d ui-corner-all"><img src="content/user/profile-img.JPG" alt="" class="g-profile-img" />Loading</span>'></button>
-    
+    <button style="display: none;" id="jqLoader" class="show-page-loading-msg" data-theme="b" data-textonly="true" data-textvisible="true" data-msgtext="Customdddd" data-inline="true" data-html='<span class="ui-bar ui-shadow ui-overlay-d ui-corner-all"><img src="content/user/profile-img.JPG" alt="" class="g-profile-img" />Loading</span>'></button>
+
     <!-- Modals -->
-    
+
     <div id="modalAddGuest" class="modal modal-fixed-footer">
-        
+
         <div class="modal-content">
-          <h4>Modal Header</h4>
-          <div class="row">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col s12">
-                  <i class="material-icons prefix teal-text">account_circle</i>
-                  <input id="icon_prefix" type="text" class="validate">
-                  <label for="icon_prefix">First Name</label>
-                </div>
-              </div>
-              <div class="row">
-                <div class="input-field col s12">
-                  <i class="material-icons prefix teal-text">phone</i>
-                  <input id="icon_telephone" type="tel" class="validate">
-                  <label for="icon_telephone">Telephone</label>
-                </div>
+            <h4>Modal Header</h4>
+            <div class="row">
+                <form class="col s12">
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix teal-text">account_circle</i>
+                            <input id="icon_prefix" type="text" class="validate">
+                            <label for="icon_prefix">First Name</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix teal-text">phone</i>
+                            <input id="icon_telephone" type="tel" class="validate">
+                            <label for="icon_telephone">Telephone</label>
+                        </div>
+                    </div>
+                </form>
             </div>
-            </form>
-          </div>
         </div>
         <div class="modal-footer">
-            <a href="#!" data-rel="back" class="modal-close waves-effect waves-light waves-red btn-flat">Close<i class="material-icons left">cloud</i></a>
+            <a href="#!" data-rel="back" class="modal-close waves-effect waves-light waves-red btn-flat">Close<i
+                    class="material-icons left">cloud</i></a>
             <a href="#!" class=" waves-effect waves-green waves-light btn">Save</a>
         </div>
-      </div>
+    </div>
 
     <!-- home page start -->
     <div data-role="page" id="homePage" class="g-homePage">
         <!-- Panels  in homePage start -->
-        <div class="g-page-header" data-position="left" data-position-fixed="true" data-role="panel" id="menuHome"  data-display="overlay">
+        <div class="g-page-header" data-position="left" data-position-fixed="true" data-role="panel" id="menuHome" data-display="overlay">
             <div class="ui-panel-inner">
                 <div class="">
-                    <a class="" data-transition="slide"  href="#accountPage">
-                    <img src="content/user/profile-img.JPG" alt="" class="g-profile-img"><br>
-                    <p class="g-account-header g-underline">Hello Devid</p></a>
+                    <a class="" data-transition="slide" href="#accountPage">
+                        <img src="content/user/profile-img.JPG" alt="" class="g-profile-img"><br>
+                        <p class="g-account-header g-underline">Hello Devid</p>
+                    </a>
                     <!-- <a     class="g-membership ui-btn ui-mini ui-icon-star ui-btn-icon-left ui-shadow " data-transition="slide"  href="#accountPage">Become Gold Member </a> -->
                 </div>
                 <hr>
                 <!-- #region -->
                 <div class="">
-                
+
                     <ul data-role="listview">
-                        <li><a class="ui-btn ui-icon-bullets ui-btn-icon-left ui-shadow" data-transition="slide"  href="#expenditurePage">Expenditure</a> </li>
+                        <li><a class="ui-btn ui-icon-bullets ui-btn-icon-left ui-shadow" data-transition="slide" href="#expenditurePage">Expenditure</a> </li>
                         <!-- <li><a class="ui-btn ui-icon-recycle ui-btn-icon-left ui-shadow " data-transition="slide"  href="#">Revenue</a> </li> -->
-                        <li><a class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow " data-transition="slide"   href="#roomsPage">Rooms</a> </li>
-                        <li><a class="ui-btn ui-icon-heart ui-btn-icon-left ui-shadow " data-transition="slide"  href="#guestsPage">Guests</a> </li>
-                        <li><a class="ui-btn ui-icon-calendar ui-btn-icon-left ui-shadow " data-transition="slide"   href="#">Today's Meals</a> </li>
+                        <li><a class="ui-btn ui-icon-home ui-btn-icon-left ui-shadow " data-transition="slide" href="#roomsPage">Rooms</a> </li>
+                        <li><a class="ui-btn ui-icon-heart ui-btn-icon-left ui-shadow " data-transition="slide" href="#guestsPage">Guests</a> </li>
+                        <li><a class="ui-btn ui-icon-calendar ui-btn-icon-left ui-shadow " data-transition="slide" href="#">Today's Meals</a> </li>
                     </ul>
                     <p>Orders</p>
                     <ul data-role="listview">
                         <li><a class="ui-btn ui-icon-shop ui-btn-icon-left ui-shadow " href="#">Orders</a> </li>
                         <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li>
-                    </ul> 
+                    </ul>
                     <p>Invitation</p>
                     <ul data-role="listview">
-                        <li><a class="ui-btn ui-icon-action ui-btn-icon-left ui-shadow " href="#">Invite a member</a> </li>
+                        <li><a class="ui-btn ui-icon-action ui-btn-icon-left ui-shadow " href="#">Invite a member</a>
+                        </li>
                         <li><a class="ui-btn ui-icon-plus ui-btn-icon-left ui-shadow " href="#">New Order</a> </li>
                     </ul>
                 </div>
@@ -110,43 +111,46 @@
         </div>
         <!-- Panels in homePage End -->
         <div class="g-page-header" data-role="header" data-position="fixed">
-            <a href="#menuHome" data-transition="slide" ><i class="small material-icons white-text">menu</i></a>
+            <a href="#menuHome" data-transition="slide"><i class="small material-icons white-text">menu</i></a>
             <h1 class="g-home-header">Dashboard</h1>
             <!-- <div data-role="controlgroup" data-type="horizntal"> -->
-                <!-- <a href="#" data-inline="true" class="ui-btn ui-icon-mail ui-btn-icon-right ui-shadow ui-corner-all ui-btn-icon-notext">Message</a> -->
-                <a href="#aboutPage" data-inline="true" ><i class="small material-icons white-text">notifications_none</i></a>
+            <!-- <a href="#" data-inline="true" class="ui-btn ui-icon-mail ui-btn-icon-right ui-shadow ui-corner-all ui-btn-icon-notext">Message</a> -->
+            <a href="#aboutPage" data-inline="true"><i
+                    class="small material-icons white-text">notifications_none</i></a>
             <!-- </div> -->
         </div>
         <div data-role="main" class="ui-content">
             <div class="carousel carousel-slider center" id="divCarousel">
-                <div class="carousel-item" >
-                    <img class="g-img" src="content/hostel/hostel1.jpg" alt="hostel" >
+                <div class="carousel-item">
+                    <img class="g-img" src="content/hostel/hostel1.jpg" alt="hostel">
                 </div>
-                <div class="carousel-item" >
-                    <img class="g-img" src="content/hostel/hostel2.jpg" alt="hoste2" >
+                <div class="carousel-item">
+                    <img class="g-img" src="content/hostel/hostel2.jpg" alt="hoste2">
                 </div>
-                <div class="carousel-item" >
-                    <img class="g-img" src="content/hostel/hostel3.jpg" alt="hoste3" >
+                <div class="carousel-item">
+                    <img class="g-img" src="content/hostel/hostel3.jpg" alt="hoste3">
                 </div>
-                
+
                 <script>
-                    $(document).ready(function(){
+                    $(document).ready(function() {
                         $('.carousel.carousel-slider').carousel({
                             fullWidth: true,
                             indicators: true
                         });
-                        M.toast({html: '<p class="g-toast g-toast-success">I am a toast! Swipe me</p>'})
-                        // M.toast({html: 'I am a toast!', classes: 'rounded'});
+                        M.toast({
+                                html: '<p class="g-toast g-toast-success">I am a toast! Swipe me</p>'
+                            })
+                            // M.toast({html: 'I am a toast!', classes: 'rounded'});
                     });
                 </script>
-              </div>
-              
-              <div class="row">
+            </div>
+
+            <div class="row">
                 <div class="col s6 m2">
                     <div class="card-panel g-card-panel g-card-panel-guest">
                         <div>
                             <p><i class="medium material-icons">person_add</i> <br> <b>Guests</b> <br>
-                            <b class="g-card-large">154</b> <br> <i class="tiny material-icons">keyboard_arrow_up</i> <b>12</b></p>
+                                <b class="g-card-large">154</b> <br> <i class="tiny material-icons">keyboard_arrow_up</i> <b>12</b></p>
                         </div>
                     </div>
                 </div>
@@ -154,17 +158,17 @@
                     <div class="card-panel g-card-panel g-card-panel-revenue">
                         <div>
                             <p><i class="medium material-icons">monetization_on</i> <br> Revenue<br>
-                            <b class="g-card-large">1,13,102</b> <br> <i class="tiny material-icons">keyboard_arrow_up</i> <b>35,600</b> </p>
+                                <b class="g-card-large">1,13,102</b> <br> <i class="tiny material-icons">keyboard_arrow_up</i> <b>35,600</b> </p>
                         </div>
                     </div>
                 </div>
-              </div>
-              <div class="row">
+            </div>
+            <div class="row">
                 <div class="col s6 m2">
                     <div class="card-panel g-card-panel g-card-panel-expenditure">
                         <div>
                             <p><i class="medium material-icons">list</i> <br> <b>Expenditure</b> <br>
-                            <b class="g-card-large">32,502</b> <br> <i class="tiny material-icons">keyboard_arrow_up</i> <b>12,400</b></p>
+                                <b class="g-card-large">32,502</b> <br> <i class="tiny material-icons">keyboard_arrow_up</i> <b>12,400</b></p>
                         </div>
                     </div>
                 </div>
@@ -172,21 +176,21 @@
                     <div class="card-panel g-card-panel g-card-panel-orders">
                         <div>
                             <p><i class="medium material-icons">shopping_cart</i> <br> Orders<br>
-                            <b class="g-card-large">12,100</b> <br> <i class="tiny material-icons">keyboard_arrow_up</i> <b>3,740</b> </p>
+                                <b class="g-card-large">12,100</b> <br> <i class="tiny material-icons">keyboard_arrow_up</i> <b>3,740</b> </p>
                         </div>
                     </div>
                 </div>
-              </div>
-              <hr>
-              <br>
+            </div>
+            <hr>
+            <br>
             <div id="expenditureContainer" style="height: 300px; width: 320px;"></div>
             <br>
             <br>
             <div id="membersContainer" style="height: 300px; width: 320px;"></div>
             <script>
-                $(document).ready(function(){
-                showChart("pie", "expenditureContainer", "Total expenditure in May - 2020","getExpenditureData");
-                showChart("bar", "membersContainer", "Rooms occupency for 2020","getGuestOccupencyData");
+                $(document).ready(function() {
+                    showChart("pie", "expenditureContainer", "Total expenditure in May - 2020", "getExpenditureData");
+                    showChart("bar", "membersContainer", "Rooms occupency for 2020", "getGuestOccupencyData");
                 });
             </script>
         </div>
@@ -198,114 +202,117 @@
     <!-- account page start -->
     <div data-role="page" id="accountPage">
         <!-- popups of account page - start -->
-        <div data-role="popup"  id="popupAccPGName" class="ui-content ui-corner-all g-tooltip" > 
-            <p>Enter complete name of the PG. So that Guests can differentiate from similar PGs</p> 
+        <div data-role="popup" id="popupAccPGName" class="ui-content ui-corner-all g-tooltip">
+            <p>Enter complete name of the PG. So that Guests can differentiate from similar PGs</p>
         </div>
-        <div data-role="popup"  id="popupAccPGLocation" class="ui-content ui-corner-all g-tooltip" > 
-            <p>Enter complete location of the PG. So that Guests can reach you easily</p> 
+        <div data-role="popup" id="popupAccPGLocation" class="ui-content ui-corner-all g-tooltip">
+            <p>Enter complete location of the PG. So that Guests can reach you easily</p>
         </div>
         <!-- popups of account page - end -->
-        <div data-role="header" class="g-page-header"  data-position="fixed">
-                <a data-rel="back" data-transition="slide" ><i class="small material-icons white-text">arrow_back</i></a>
-                <h1 class="g-home-header">Account</h1>
-                <a id="linkAccountEdit" onclick="app.onAccountEditClick(this,'formAccount','account');" ><i id="icon-account-edit" class="small material-icons white-text">edit</i></a>
+        <div data-role="header" class="g-page-header" data-position="fixed">
+            <a data-rel="back" data-transition="slide"><i class="small material-icons white-text">arrow_back</i></a>
+            <h1 class="g-home-header">Account</h1>
+            <a id="linkAccountEdit" onclick="app.onAccountEditClick(this,'formAccount','account');"><i
+                    id="icon-account-edit" class="small material-icons white-text">edit</i></a>
         </div>
         <div data-role="main" class="ui-content">
-                <!-- <p>Account Settings</p> -->
-                <div class="g-account-profileBG">
-                    <a class="g-account-edit-icon btn-floating btn-large waves-effect waves-light red pulse "><i class="material-icons">edit</i></a>
+            <!-- <p>Account Settings</p> -->
+            <div class="g-account-profileBG">
+                <a class="g-account-edit-icon btn-floating btn-large waves-effect waves-light red pulse "><i
+                        class="material-icons">edit</i></a>
+            </div>
+            <form action="" id="formAccount">
+                <div class="ui-field-contain">
+                    <label for="">PG Name<a href="#popupAccPGName" data-rel="popup" data-transition="pop"
+                            class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
+                            title="What is this?">
+                            Info</a></label>
+                    <input disabled="disabled" type="text" name="pgname" value="Second Home PG" placeholder="Enter PG name">
                 </div>
-               <form action="" id="formAccount">
-                    <div class="ui-field-contain">
-                        <label for="">PG Name<a href="#popupAccPGName" data-rel="popup" data-transition="pop" 
+                <div class="ui-field-contain">
+                    <label for="">PG Location<a href="#popupAccPGLocation" data-rel="popup" data-transition="pop"
                             class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
                             title="What is this?">
                             Info</a></label>
-                        <input disabled="disabled" type="text" name="pgname" value="Second Home PG" placeholder="Enter PG name">
-                    </div>
-                    <div class="ui-field-contain">
-                        <label for="">PG Location<a href="#popupAccPGLocation" data-rel="popup" data-transition="pop" 
-                            class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
-                            title="What is this?">
-                            Info</a></label>
-                        <input disabled="disabled" type="text" name="pglocation" value="H.No:2-122, Madhapur, Hyderabad" placeholder="Enter PG name">
-                    </div>
-                    <div class="ui-field-contain">
-                        <label for="">Owner Name </label>
-                        <input disabled="disabled" type="text" name="ownername" value="Devid Lingampally" placeholder="Enter owner name">
-                    </div>
-                    <div class="ui-field-contain">
-                        <label for="">Business EmailID </label>
-                        <input disabled="disabled" type="text" name="businessEmail" value="secondhomes@gmail.com" placeholder="Enter Email ID">
-                    </div>
-                </form>
-                <!-- <a href="contact.html">Contact</a> -->
+                    <input disabled="disabled" type="text" name="pglocation" value="H.No:2-122, Madhapur, Hyderabad" placeholder="Enter PG name">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="">Owner Name </label>
+                    <input disabled="disabled" type="text" name="ownername" value="Devid Lingampally" placeholder="Enter owner name">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="">Business EmailID </label>
+                    <input disabled="disabled" type="text" name="businessEmail" value="secondhomes@gmail.com" placeholder="Enter Email ID">
+                </div>
+            </form>
+            <!-- <a href="contact.html">Contact</a> -->
         </div>
         <div data-role="footer" data-position="fixed">
-                <!-- <h1>&copy; Guest App 2020</h1> -->
+            <!-- <h1>&copy; Guest App 2020</h1> -->
         </div>
     </div>
     <!-- account page end -->
     <!-- expenditure page start -->
     <div data-role="page" id="expenditurePage">
         <!-- popups of account page - start -->
-        <div data-role="popup"  id="popupAccPGName" class="ui-content ui-corner-all g-tooltip" > 
-            <p>Enter complete name of the PG. So that Guests can differentiate from similar PGs</p> 
+        <div data-role="popup" id="popupAccPGName" class="ui-content ui-corner-all g-tooltip">
+            <p>Enter complete name of the PG. So that Guests can differentiate from similar PGs</p>
         </div>
-        <div data-role="popup"  id="popupAccPGLocation" class="ui-content ui-corner-all g-tooltip" > 
-            <p>Enter complete location of the PG. So that Guests can reach you easily</p> 
+        <div data-role="popup" id="popupAccPGLocation" class="ui-content ui-corner-all g-tooltip">
+            <p>Enter complete location of the PG. So that Guests can reach you easily</p>
         </div>
         <!-- popups of account page - end -->
-        <div data-role="header" class="g-page-header"  data-position="fixed">
-            <a data-rel="back" data-transition="slide" ><i class="small material-icons white-text">arrow_back</i></a>
-                <h1 class="g-home-header">Expenditure</h1>
-                <a id="linkExpenditureAdd" onclick="app.onExpenditureAdd(this,'formExpenditure','account');" ><i id="icon-expenditure-add" class="small material-icons white-text">add</i></a>
+        <div data-role="header" class="g-page-header" data-position="fixed">
+            <a data-rel="back" data-transition="slide"><i class="small material-icons white-text">arrow_back</i></a>
+            <h1 class="g-home-header">Expenditure</h1>
+            <a id="linkExpenditureAdd" onclick="app.onExpenditureAdd(this,'formExpenditure','account');"><i
+                    id="icon-expenditure-add" class="small material-icons white-text">add</i></a>
         </div>
         <div data-role="main" class="ui-content">
-                <!-- <p>Account Settings</p> -->
-               <!-- <div id="totalExpenditure">
+            <!-- <p>Account Settings</p> -->
+            <!-- <div id="totalExpenditure">
                </div> -->
-               <!-- <div id="expContainer" style="height: 300px; width: 320px;"></div> -->
-               <script>
-                $(document).ready(function(){
+            <!-- <div id="expContainer" style="height: 300px; width: 320px;"></div> -->
+            <script>
+                $(document).ready(function() {
                     //showChart("pie", "expContainer", "Total expenditure in May - 2020","getExpenditureData");
                     // app.showExpenditure('totalExpenditure', 'month');
                 });
             </script>
-               <form action="" id="formExpenditure">
-                    <div class="ui-field-contain">
-                        <label for="">PG Name<a href="#popupAccPGName" data-rel="popup" data-transition="pop" 
+            <form action="" id="formExpenditure">
+                <div class="ui-field-contain">
+                    <label for="">PG Name<a href="#popupAccPGName" data-rel="popup" data-transition="pop"
                             class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
                             title="What is this?">
                             Info</a></label>
-                        <input disabled="disabled" type="text" name="pgname" value="Second Home PG" placeholder="Enter PG name">
-                    </div>
-                    <div class="ui-field-contain">
-                        <label for="">PG Location<a href="#popupAccPGLocation" data-rel="popup" data-transition="pop" 
+                    <input disabled="disabled" type="text" name="pgname" value="Second Home PG" placeholder="Enter PG name">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="">PG Location<a href="#popupAccPGLocation" data-rel="popup" data-transition="pop"
                             class="my-tooltip-btn ui-btn ui-alt-icon ui-nodisc-icon ui-btn-inline ui-icon-info ui-btn-icon-notext"
                             title="What is this?">
                             Info</a></label>
-                        <input disabled="disabled" type="text" name="pglocation" value="H.No:2-122, Madhapur, Hyderabad" placeholder="Enter PG name">
-                    </div>
-                    <div class="ui-field-contain">
-                        <label for="">Owner Name </label>
-                        <input disabled="disabled" type="text" name="ownername" value="Devid Lingampally" placeholder="Enter owner name">
-                    </div>
-                    <div class="ui-field-contain">
-                        <label for="">Business EmailID </label>
-                        <input disabled="disabled" type="text" name="businessEmail" value="secondhomes@gmail.com" placeholder="Enter Email ID">
-                    </div>
-                </form>
-                <!-- <a href="contact.html">Contact</a> -->
+                    <input disabled="disabled" type="text" name="pglocation" value="H.No:2-122, Madhapur, Hyderabad" placeholder="Enter PG name">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="">Owner Name </label>
+                    <input disabled="disabled" type="text" name="ownername" value="Devid Lingampally" placeholder="Enter owner name">
+                </div>
+                <div class="ui-field-contain">
+                    <label for="">Business EmailID </label>
+                    <input disabled="disabled" type="text" name="businessEmail" value="secondhomes@gmail.com" placeholder="Enter Email ID">
+                </div>
+            </form>
+            <!-- <a href="contact.html">Contact</a> -->
         </div>
         <div data-role="footer" data-position="fixed">
-                <!-- <h1>&copy; Guest App 2020</h1> -->
+            <!-- <h1>&copy; Guest App 2020</h1> -->
         </div>
     </div>
     <!-- expenditure page end -->
     <!-- about page start -->
-    <div data-role="page" id="aboutPage"  data-dialog="true" data-close-btn="none"  data-transition="slidedown">
-        <div class="g-page-header"  data-role="header" data-position="fixed">
+    <div data-role="page" id="aboutPage" data-dialog="true" data-close-btn="none" data-transition="slidedown">
+        <div class="g-page-header" data-role="header" data-position="fixed">
             <h1 class="g-home-header">About Page</h1>
         </div>
         <div data-role="main" class="ui-content">
@@ -323,31 +330,76 @@
     <!-- about page end-->
 
     <!-- Guests page start -->
-    <div data-role="page" id="guestsPage" >
-        <div data-role="popup"  id="popupAddGuest" class="ui-corner-all" data-dismissible="false">
-            <!-- <div style="background-color: darkseagreen;"  data-role="header" data-position="fixed"> -->
-            <a href="" id="linkAddGuestClose" data-rel="back" class="ui-btn ui-btn-a ui-icon-delete ui-btn-right ui-shadow ui-corner-all ui-btn-icon-notext">Home</a>
-            <form action="#guestsPage" method="POST" id="formAddNewGuest">
-                <div style="padding:10px">
-                    <h3>Add Guest</h3>
-                    <label for="guestName" class="ui-hidden-accessible">Guest Name:</label>
-                    <input type="text"  name="guestName" id="guestName" placeholder="Enter new Guest Name"/>
-                    <label for="guestAge" class="ui-hidden-accessible">Guest Age:</label>
-                    <input type="number" data-clear-btn="true" pattern="/^[+]?([1-9][0-9]*(?:[\.][0-9]*)?|0*\.0*[1-9][0-9]*)(?:[eE][+-][0-9]+)?$/" name="guestAge" id="guestAge" placeholder="Guest Age"/>
-                    <button type="submit" data-rel="back" onclick="app.addNewGuest(this)"  style="background-color: darkseagreen;" class="ui-btn ui-icon-check ui-btn-icon-left ui-shadow ui-corner-all">Save</button>
+    <div data-role="page" id="guestsPage">
+        <div data-role="popup" id="popupAddGuest" class="ui-corner-all" data-dismissible="false">
+            <div class="modal-content">
+                <div class="g-modal-header"><b>Add Guest</b></div>
+                <hr>
+                <div class="row">
+                    <form id="formAddGuest" method="POST" action="" class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix teal-text">account_circle</i>
+                                <input name="Name" id="Name" type="text" class="validate">
+                                <label for="Name">Full Name</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix teal-text">phone</i>
+                                <input name="Mobile" id="Mobile" type="tel" class="validate">
+                                <label for="Mobile">Mobile</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix teal-text">phone</i>
+                                <input name="AlternateMobile" id="AlternateMobile" type="tel" class="validate">
+                                <label for="AlternateMobile">Alternate Mobile</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <label for="">Home</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea name="HomeAddress" id="HomeAddress" class="materialize-textarea"></textarea>
+                                <label for="HomeAddress">Address</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix teal-text">account_circle</i>
+                                <input name="HomeCity" id="HomeCity" type="text" class="validate">
+                                <label for="HomeCity">City</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="material-icons prefix teal-text">phone</i>
+                                <input name="HomePinCode" id="HomePinCode" type="tel" class="validate">
+                                <label for="HomePinCode">PinCode</label>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-            </form> 
-               
+            </div>
+            <div class="modal-footer">
+                <a href="#!" id="closeAddGuest" data-rel="back" class="modal-close waves-effect waves-light waves-red btn-flat">Close</a>
+                <a href="#!" onclick="app.saveGuest()" class=" waves-effect waves-green waves-light btn">Save</a>
+            </div>
         </div>
-        <div class="g-page-header"  data-role="header" data-position="fixed">
-            <a data-rel="back" data-transition="slide" ><i class="small material-icons white-text">arrow_back</i></a>
+        <div class="g-page-header" data-role="header" data-position="fixed">
+            <a data-rel="back" data-transition="slide"><i class="small material-icons white-text">arrow_back</i></a>
             <h1 class="g-home-header">Guests</h1>
             <!-- <a href="#" id="linkAddGuest" onclick="app.addNewGuest()"  class="ui-btn ui-icon-plus ui-mini ui-btn-icon-left ui-shadow ui-corner-all">Add Guest</a> -->
             <!-- <a href="#popupAddGuest" data-rel="popup" data-position-to="window" data-transition="popup" id="linkAddGuest"  class="ui-btn ui-icon-plus ui-mini ui-btn-icon-left ui-shadow ui-corner-all">Add Guest</a> -->
         </div>
         <div data-role="main" class="ui-content">
             <script>
-                $(document).ready(function(){
+                $(document).ready(function() {
                     app.getGuestList();
                 })
             </script>
@@ -355,12 +407,12 @@
             </div>
             <div style="overflow: scroll; width: 300px;" id="error">
             </div>
-            <div class="fixed-action-btn"> 
-                <!-- href="#popupAddGuest"  -->
-                <a href="#modalAddGuest" onclick="app.adjustModalFields()" id="linkAddGuest"   class="btn-floating btn-large red pulse">
-                  <i class="large material-icons">add</i>
+            <div class="fixed-action-btn">
+                <!-- href="#popupAddGuest" onclick="app.adjustModalFields()"  -->
+                <a href="#popupAddGuest" data-transition="pop" onclick="app.adjustModalFields()" data-rel="popup" data-position-to="window" data-transition="popup" id="linkAddGuest" class="btn-floating btn-large red pulse">
+                    <i class="large material-icons">add</i>
                 </a>
-              </div>
+            </div>
         </div>
         <!-- <div data-role="footer" data-position="fixed">
             <h1>&copy; Guest App 2020</h1>
@@ -369,18 +421,18 @@
     <!-- Guests page end-->
 
     <!-- Rooms page start -->
-    <div data-role="page" id="roomsPage" >
+    <div data-role="page" id="roomsPage">
 
-        <div  class="g-page-header"  data-role="header" data-position="fixed">
-            <a data-rel="back" data-transition="slide" ><i class="small material-icons white-text">arrow_back</i></a>
+        <div class="g-page-header" data-role="header" data-position="fixed">
+            <a data-rel="back" data-transition="slide"><i class="small material-icons white-text">arrow_back</i></a>
             <!-- <a href="#" id="linkAddGuest" onclick="app.addNewGuest()"  class="ui-btn ui-icon-plus ui-mini ui-btn-icon-left ui-shadow ui-corner-all">Add Guest</a> -->
             <h1 class="g-home-header">Rooms</h1>
             <!-- <a href="#popupAddRoom" data-rel="popup" data-position-to="window" data-transition="popup" id="linkAddRoom"  class="ui-btn ui-icon-plus ui-mini ui-btn-icon-left ui-shadow ui-corner-all">Add Room</a> -->
-            <a href="#popupAddRoom" data-rel="popup" data-position-to="window" data-transition="popup" id="linkAddRoom"  ><i id="icon-expenditure-add" class="small material-icons white-text">add</i></a>
+            <a href="#popupAddRoom" data-rel="popup" data-position-to="window" data-transition="popup" id="linkAddRoom"><i id="icon-expenditure-add" class="small material-icons white-text">add</i></a>
         </div>
         <div data-role="main" class="ui-content">
             <div class="g-div-overflow">
-                <table border="1" data-role="table" data-mode="columntoggle" class="ui-responsive table-stripe ui-shadow" >
+                <table border="1" data-role="table" data-mode="columntoggle" class="ui-responsive table-stripe ui-shadow">
                     <thead style="background-color: darkseagreen;">
                         <tr>
                             <!-- <th>Name</th> -->
@@ -422,7 +474,7 @@
                         </tr>
                     </tbody>
                 </table>
-        </div>
+            </div>
         </div>
         <div data-role="footer" data-position="fixed">
             <!-- <h1>&copy; Guest App 2020</h1> -->
@@ -435,44 +487,46 @@
         app.initialize();
     </script>
     <script>
-        $(document).bind("mobileinit",function(){
-            $.mobile.allowCrossDomainPages= true;
+        $(document).bind("mobileinit", function() {
+            $.mobile.allowCrossDomainPages = true;
             console.log(cordova);
             //alert($.mobile.allowCrossDomainPages);
         });
-        $(document).ready(function(){
-            $('.modal').modal({opacity:0.3});
+        $(document).ready(function() {
+            $('.modal').modal({
+                opacity: 0.3
+            });
             $.support.cors = true;
             //alert($.support.cors);
 
-           // $('#formAddNewGuest').on("submit",app.AddNewGuestSubmit());
-           $('#formAddNewGuest').validate({
-    rules: {
-        guestName: {
-            required: true
-        },
-        guestAge: {
-            required: true
-        }
-    },
-    messages: {
-        guestName: {
-            required: "Please enter  name."
-        },
-        guestAge: {
-            required: "Please enter age."
-        }
-    },
-    errorPlacement: function (error, element) {
-        error.appendTo(element.parent().prev());
-    },
-    submitHandler: function (form) {
-        $(':mobile-pagecontainer').pagecontainer('change', '#success', {
-            reload: false
-        });
-        return false;
-    }
-});
+            // $('#formAddNewGuest').on("submit",app.AddNewGuestSubmit());
+            $('#formAddNewGuest').validate({
+                rules: {
+                    guestName: {
+                        required: true
+                    },
+                    guestAge: {
+                        required: true
+                    }
+                },
+                messages: {
+                    guestName: {
+                        required: "Please enter  name."
+                    },
+                    guestAge: {
+                        required: "Please enter age."
+                    }
+                },
+                errorPlacement: function(error, element) {
+                    error.appendTo(element.parent().prev());
+                },
+                submitHandler: function(form) {
+                    $(':mobile-pagecontainer').pagecontainer('change', '#success', {
+                        reload: false
+                    });
+                    return false;
+                }
+            });
         });
     </script>
 </body>
